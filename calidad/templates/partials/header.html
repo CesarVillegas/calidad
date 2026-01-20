@@ -2,21 +2,26 @@
 
 <header class="userena-header">
     <div class="container d-flex align-items-center justify-content-between">
-        
+
         <!-- Logo -->
         <div class="d-flex align-items-center">
             <img src="{% static 'img/logo-userena.png' %}" 
                  alt="Universidad de La Serena"
-                 class="logo-userena me-3">
+                 class="logo-userena me-2">
 
-            <!-- <div class="logo-text">
+            <div class="logo-text d-none d-md-block">
                 <div class="logo-title">Universidad de La Serena</div>
                 <div class="logo-subtitle">Chile</div>
-            </div> -->
+            </div>
         </div>
 
+        <!-- Botón móvil -->
+        <button class="menu-toggle d-lg-none" onclick="toggleMenu()">
+            ☰
+        </button>
+
         <!-- Menú -->
-        <nav class="userena-nav">
+        <nav class="userena-nav d-none d-lg-flex" id="mainMenu">
             <a href="#" class="nav-link active">Inicio</a>
             <a href="#" class="nav-link">Admisión</a>
             <a href="#" class="nav-link">Universidad</a>
@@ -24,8 +29,17 @@
             <a href="#" class="nav-link">Investigación</a>
             <a href="#" class="nav-link">Vinculación</a>
         </nav>
-
     </div>
+
+    <!-- Menú móvil -->
+    <nav class="userena-nav-mobile d-lg-none" id="mobileMenu">
+        <a href="#">Inicio</a>
+        <a href="#">Admisión</a>
+        <a href="#">Universidad</a>
+        <a href="#">Docencia</a>
+        <a href="#">Investigación</a>
+        <a href="#">Vinculación</a>
+    </nav>
 
     <div class="userena-wave"></div>
 </header>
