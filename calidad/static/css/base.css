@@ -1,109 +1,195 @@
-/* =========================
-   Identidad institucional
-   (Aproximación USERENA)
-   ========================= */
+/* =====================================================
+   Identidad visual institucional USERENA
+   Base CSS global del proyecto
+   ===================================================== */
+
 :root {
-  --userena-blue: #003a8f;     /* Azul institucional aprox */
-  --userena-blue-dark: #002c6e;
-  --userena-gray: #6c757d;
-  --userena-light: #f4f6f8;
-
-  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --userena-azul: #003A8F;
+    --userena-azul-hover: #002f73;
+    --userena-gris-texto: #333333;
+    --userena-gris-claro: #f5f5f5;
+    --userena-gris-footer: #6c757d;
 }
 
-/* =========================
-   Base
-   ========================= */
-html, body {
-  height: 100%;
-}
+/* ---------------- Reset / Base ---------------- */
 
 body {
-  font-family: var(--font-base);
-  background-color: #ffffff;
-  color: #212529;
-  display: flex;
-  flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    color: var(--userena-gris-texto);
+    margin: 0;
+    padding: 0;
 }
 
-/* =========================
-   Layout principal
-   ========================= */
-main.container {
-  flex: 1;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
+/* ---------------- Navbar ---------------- */
 
-/* =========================
-   Navbar (estilo institucional)
-   ========================= */
 .navbar {
-  background-color: var(--userena-blue);
-  border-bottom: 3px solid var(--userena-blue-dark);
+    background-color: var(--userena-azul);
 }
 
 .navbar-brand {
-  font-weight: 600;
-  font-size: 1.05rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255,255,255,.9);
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #ffffff !important;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #ffffff;
-  text-decoration: underline;
+.navbar-nav .nav-link:hover {
+    text-decoration: underline;
 }
 
-/* =========================
-   Tipografía
-   ========================= */
+/* ---------------- Contenido ---------------- */
+
+main {
+    min-height: 70vh;
+}
+
+.section {
+    padding: 2.5rem 0;
+}
+
 h1, h2, h3 {
-  font-weight: 600;
-  color: var(--userena-blue-dark);
+    color: var(--userena-azul);
+    font-weight: 500;
 }
 
-.lead {
-  color: #495057;
+p {
+    line-height: 1.6;
 }
 
-/* =========================
-   Cards y bloques
-   ========================= */
-.card {
-  border-radius: .25rem;
-  border: 1px solid #e1e1e1;
-}
+/* ---------------- Footer ---------------- */
 
-.card-header {
-  background-color: var(--userena-light);
-  font-weight: 600;
-}
-
-/* =========================
-   Botones
-   ========================= */
-.btn-primary {
-  background-color: var(--userena-blue);
-  border-color: var(--userena-blue);
-}
-
-.btn-primary:hover {
-  background-color: var(--userena-blue-dark);
-  border-color: var(--userena-blue-dark);
-}
-
-/* =========================
-   Footer institucional
-   ========================= */
 .footer {
-  background-color: var(--userena-light);
-  border-top: 1px solid #dcdcdc;
-  font-size: .875rem;
+    background-color: var(--userena-gris-claro);
+    border-top: 1px solid #ddd;
 }
 
 .footer small {
-  color: var(--userena-gray);
+    color: var(--userena-gris-footer);
+}
+
+/* ---------------- Enlaces ---------------- */
+
+a {
+    color: var(--userena-azul);
+}
+
+a:hover {
+    color: var(--userena-azul-hover);
+}
+
+
+/* ===============================
+   Header institucional USERENA
+   =============================== */
+
+.userena-header {
+    background-color: #ffffff;
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo */
+.logo-userena {
+    height: 56px;
+}
+
+.logo-text {
+    line-height: 1.1;
+}
+
+.logo-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--userena-azul);
+    text-transform: uppercase;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: #6c757d;
+    letter-spacing: 1px;
+}
+
+/* Navegación */
+.userena-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.userena-nav .nav-link {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+    padding: 0;
+}
+
+.userena-nav .nav-link:hover,
+.userena-nav .nav-link.active {
+    color: var(--userena-azul);
+    text-decoration: none;
+}
+
+/* Franja curva inferior */
+.userena-wave {
+    height: 32px;
+    background-color: var(--userena-azul);
+    border-top-right-radius: 60px;
+    border-top-left-radius: 0;
+}
+
+
+/* ===============================
+   Footer institucional USERENA
+   =============================== */
+
+.userena-footer {
+    background-color: #2f2d5b; /* azul/morado institucional */
+    color: #ffffff;
+    padding: 3rem 0;
+    font-size: 0.9rem;
+}
+
+.userena-footer h6 {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* línea rosa bajo títulos */
+.userena-footer h6::after {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 4px;
+    background-color: #e91e63;
+    margin-top: 0.5rem;
+}
+
+.userena-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.userena-footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.userena-footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.userena-footer a:hover {
+    text-decoration: underline;
+    color: #9fd3ff;
 }
