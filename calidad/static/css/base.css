@@ -1,0 +1,109 @@
+/* =========================
+   Identidad institucional
+   (Aproximación USERENA)
+   ========================= */
+:root {
+  --userena-blue: #003a8f;     /* Azul institucional aprox */
+  --userena-blue-dark: #002c6e;
+  --userena-gray: #6c757d;
+  --userena-light: #f4f6f8;
+
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* =========================
+   Base
+   ========================= */
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: #ffffff;
+  color: #212529;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   Layout principal
+   ========================= */
+main.container {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* =========================
+   Navbar (estilo institucional)
+   ========================= */
+.navbar {
+  background-color: var(--userena-blue);
+  border-bottom: 3px solid var(--userena-blue-dark);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.9);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* =========================
+   Tipografía
+   ========================= */
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--userena-blue-dark);
+}
+
+.lead {
+  color: #495057;
+}
+
+/* =========================
+   Cards y bloques
+   ========================= */
+.card {
+  border-radius: .25rem;
+  border: 1px solid #e1e1e1;
+}
+
+.card-header {
+  background-color: var(--userena-light);
+  font-weight: 600;
+}
+
+/* =========================
+   Botones
+   ========================= */
+.btn-primary {
+  background-color: var(--userena-blue);
+  border-color: var(--userena-blue);
+}
+
+.btn-primary:hover {
+  background-color: var(--userena-blue-dark);
+  border-color: var(--userena-blue-dark);
+}
+
+/* =========================
+   Footer institucional
+   ========================= */
+.footer {
+  background-color: var(--userena-light);
+  border-top: 1px solid #dcdcdc;
+  font-size: .875rem;
+}
+
+.footer small {
+  color: var(--userena-gray);
+}
