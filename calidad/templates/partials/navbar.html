@@ -1,0 +1,131 @@
+{% load static %}
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+
+    <!-- Logo -
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-img">
+        -- Escudo USerena SVG -
+        -- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a2d5a"/>
+          <circle cx="50" cy="50" r="44" fill="none" stroke="#c0392b" stroke-width="3"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <text x="50" y="45" text-anchor="middle" fill="white" font-size="22" font-weight="bold" font-family="Georgia, serif">U</text>
+          <text x="50" y="60" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="7.5" font-family="Arial, sans-serif" letter-spacing="1">LA SERENA</text>
+          <text x="50" y="70" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="5.5" font-family="Arial, sans-serif" letter-spacing="0.5">CHILE</text>
+        </svg> -
+        <img src=" " alt="Universidad de La Serena" class="nav-logo-img">
+      </div>
+      -- <div class="nav-logo-text">
+        <span class="univ">Universidad de La Serena</span>
+        <span class="sub">Desarrollo Estratégico y Calidad</span>
+      </div> --
+    </a>-->
+
+    <a href="#" class="nav-logo">
+      <img src="{% static 'images/logos/logo-userena.png' %}" alt="Universidad de La Serena" class="nav-logo-img">
+    </a>
+
+    <!-- Hamburger móvil (oculto por JS en desktop) -->
+    <button class="hamburger" id="hamburger" style="display:none" aria-label="Abrir menú">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Menú -->
+    <ul class="nav-menu" id="nav-menu">
+
+      <!-- Inicio -->
+      <li class="nav-item active">
+        <a href="#" class="nav-link-btn">Inicio</a>
+      </li>
+
+      <!-- Quiénes Somos (sin submenú) -->
+      <li class="nav-item">
+        <a href="#" class="nav-link-btn">Quiénes Somos</a>
+      </li>
+
+      <!-- Calidad -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Calidad <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li class="dropdown-item-custom">
+            <a href="#" class="dropdown-link">Organización y responsabilidades</a>
+          </li>
+          <li class="dropdown-item-custom">
+            <a href="#" class="dropdown-link">Definición de Calidad USerena</a>
+          </li>
+          <li class="dropdown-item-custom">
+            <a href="#" class="dropdown-link">Política de Gestión Integral de la Calidad</a>
+          </li>
+          <li class="dropdown-divider-custom"></li>
+          <!-- Sub-submenú -->
+          <li class="dropdown-item-custom">
+            <button class="dropdown-link" data-toggle="submenu">
+              <strong>Sistema de Gestión Integral de la Calidad</strong>
+              <i class="bi bi-chevron-right arrow"></i>
+            </button>
+            <ul class="submenu">
+              <li><a href="#" class="submenu-link">Ciclo PHVA</a></li>
+              <li><a href="#" class="submenu-link">Mecanismos del SGIC</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Acreditación -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Acreditacion <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Proceso de Acreditación</a></li>
+          <li><a href="#" class="dropdown-link">Criterios de Evaluación</a></li>
+          <li><a href="#" class="dropdown-link">Resultados y Certificaciones</a></li>
+        </ul>
+      </li>
+
+      <!-- Formación -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Formación <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Programas de Formación</a></li>
+          <li><a href="#" class="dropdown-link">Cursos y Talleres</a></li>
+          <li><a href="#" class="dropdown-link">Recursos Pedagógicos</a></li>
+        </ul>
+      </li>
+
+      <!-- Documentos -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Documentos <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Reglamentos</a></li>
+          <li><a href="#" class="dropdown-link">Formularios</a></li>
+          <li><a href="#" class="dropdown-link">Informes Anuales</a></li>
+          <li><a href="#" class="dropdown-link">Normativas Vigentes</a></li>
+        </ul>
+      </li>
+
+      <!-- Multimedia -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Multimedia <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Galería de Fotos</a></li>
+          <li><a href="#" class="dropdown-link">Videos Institucionales</a></li>
+          <li><a href="#" class="dropdown-link">Noticias</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</nav>

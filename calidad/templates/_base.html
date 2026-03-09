@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar USerena</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" fill="#1a2d5a" stroke="#c0392b" stroke-width="4"/>
+        <text x="50" y="44" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="serif">U</text>
+        <text x="50" y="62" text-anchor="middle" fill="white" font-size="9" font-family="serif">LA SERENA</text>
+      </svg>
+    </div>
+    <div class="topbar-text">
+      <div class="dept">Vicerrectoría de Investigación y Postgrado</div>
+      <div class="univ">UNIVERSIDAD DE LA SERENA</div>
+      <div class="country">Chile</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVBAR ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+
+    <!-- Mobile header -->
+    <div class="nav-mobile-header" style="display:none; width:100%;">
+      <span style="color:white; font-size:0.85rem; font-weight:600;">Menú</span>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+
+    <ul class="nav-menu" id="nav-menu">
+
+      <!-- Inicio -->
+      <li class="nav-item">
+        <a href="#" class="nav-link-btn">Inicio</a>
+      </li>
+
+      <!-- Quiénes Somos -->
+      <li class="nav-item">
+        <a href="#" class="nav-link-btn">Quiénes Somos</a>
+      </li>
+
+      <!-- Calidad -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Calidad <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li class="dropdown-item-custom">
+            <a href="#" class="dropdown-link">Organización y responsabilidades</a>
+          </li>
+          <li class="dropdown-item-custom">
+            <a href="#" class="dropdown-link">Definición de Calidad USerena</a>
+          </li>
+          <li class="dropdown-item-custom">
+            <a href="#" class="dropdown-link">Política de Gestión Integral de la Calidad</a>
+          </li>
+          <li class="dropdown-divider-custom"></li>
+          <li class="dropdown-item-custom">
+            <button class="dropdown-link" data-toggle="submenu">
+              <strong>Sistema de Gestión Integral de la Calidad</strong>
+              <i class="bi bi-chevron-right arrow"></i>
+            </button>
+            <ul class="submenu">
+              <li><a href="#" class="submenu-link">Ciclo PHVA</a></li>
+              <li><a href="#" class="submenu-link">Mecanismos del SGIC</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Acreditación -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Acreditación <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Proceso de Acreditación</a></li>
+          <li><a href="#" class="dropdown-link">Criterios de Evaluación</a></li>
+          <li><a href="#" class="dropdown-link">Resultados y Certificaciones</a></li>
+        </ul>
+      </li>
+
+      <!-- Formación -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Formación <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Programas de Formación</a></li>
+          <li><a href="#" class="dropdown-link">Cursos y Talleres</a></li>
+          <li><a href="#" class="dropdown-link">Recursos Pedagógicos</a></li>
+        </ul>
+      </li>
+
+      <!-- Documentos -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Documentos <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Reglamentos</a></li>
+          <li><a href="#" class="dropdown-link">Formularios</a></li>
+          <li><a href="#" class="dropdown-link">Informes Anuales</a></li>
+          <li><a href="#" class="dropdown-link">Normativas Vigentes</a></li>
+        </ul>
+      </li>
+
+      <!-- Multimedia -->
+      <li class="nav-item">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Multimedia <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li><a href="#" class="dropdown-link">Galería de Fotos</a></li>
+          <li><a href="#" class="dropdown-link">Videos Institucionales</a></li>
+          <li><a href="#" class="dropdown-link">Noticias</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- ── DEMO CONTENT ── -->
+<div class="demo-content">
+  <div class="demo-card">
+    <h2>Bienvenido al Sistema de Gestión de Calidad</h2>
+    <p>
+      Este es el portal institucional de la Vicerrectoría de Investigación y Postgrado de la Universidad de La Serena.
+      Utiliza el menú superior para navegar entre las secciones disponibles. En dispositivos móviles,
+      el menú se colapsa con el ícono de hamburguesa.
+    </p>
+    <p style="margin-top:1rem; color:#999; font-size:0.78rem;">
+      ✦ Hover sobre <strong>Calidad</strong> para ver el submenú con sub-submenú anidado (Sistema de Gestión → Ciclo PHVA / Mecanismos SGIC)
+    </p>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<!-- JS propio -->
+<script src="{% static 'js/navbar.js' %}"></script>
+
+</body>
+</html>

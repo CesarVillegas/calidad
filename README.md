@@ -45,21 +45,18 @@ python3 -m venv venv
 source venv/bin/activate 
 which python
 
-3️⃣ Instalar dependencias
+# 3️⃣ Instalar dependencias
 pip install -r requirements.txt
 
-▶️ Ejecutar el proyecto
-python manage.py migrate
+# 8️⃣ Verificar versión instalada
+python -m django --version
 
-Crear usuario administrador
-python manage.py createsuperuser
-
-Iniciar servidor de desarrollo
+# Iniciar servidor de desarrollo
 python manage.py runserver
 
 ```
 
-Django y MySQL 5.7
+## Django y MySQL 5.7
 
 Django 4.2 fue la última versión en soportar MySQL 5.7
 Django 5.0 en adelante requiere MySQL 8.0 como mínimo
@@ -73,13 +70,20 @@ Django      MySQL mínimo
 
 
 
+# Crear la rama y cambiarte a ella en un solo comando
+git checkout -b testing
+
+# Verificar que estás en la rama correcta
+git branch
 
 
 
+▶️ Ejecutar el proyecto
+python manage.py migrate
 
+## Crear usuario administrador
 
-
- python manage.py createsuperuser
+> python manage.py createsuperuser
 
 Username (leave blank to use 'desarrollador'): cesar
 Email address: cevillegas@userena.cl

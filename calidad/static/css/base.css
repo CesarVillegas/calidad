@@ -1,255 +1,141 @@
-/* =====================================================
-   Identidad visual institucional USERENA
-   Base CSS global del proyecto
-   ===================================================== */
+/* Estilos globales y variables CSS */
+
+*, *::before, *::after { box-sizing: border-box; }
 
 :root {
-    --userena-azul: #003A8F;
-    --userena-azul-hover: #002f73;
-    --userena-gris-texto: #333333;
-    --userena-gris-claro: #f5f5f5;
-    --userena-gris-footer: #6c757d;
+  --azul:            #1a2d5a;
+  --rojo:            #c0392b;
+  --blanco:          #ffffff;
+  --gris-texto:      #444444;
+  --gris-link:       #555555;
+  --gris-hover-bg:   #f4f6f8;
+  --borde:           #e4e4e4;
+  --sombra-nav:      0 1px 8px rgba(0,0,0,0.08);
+  --sombra-dropdown: 0 6px 24px rgba(0,0,0,0.10);
 }
-
-/* ---------------- Reset / Base ---------------- */
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
-    color: var(--userena-gris-texto);
-    margin: 0;
-    padding: 0;
-}
-
-/* ---------------- Navbar ---------------- */
-
-.navbar {
-    background-color: var(--userena-azul);
-}
-
-.navbar-brand {
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-
-.navbar-brand,
-.navbar-nav .nav-link {
-    color: #ffffff !important;
-}
-
-.navbar-nav .nav-link:hover {
-    text-decoration: underline;
-}
-
-/* ---------------- Contenido ---------------- */
-
-main {
-    min-height: 70vh;
-}
-
-.section {
-    padding: 2.5rem 0;
-}
-
-h1, h2, h3 {
-    color: var(--userena-azul);
-    font-weight: 500;
-}
-
-p {
-    line-height: 1.6;
-}
-
-/* ---------------- Footer ---------------- */
-
-.footer {
-    background-color: var(--userena-gris-claro);
-    border-top: 1px solid #ddd;
-}
-
-.footer small {
-    color: var(--userena-gris-footer);
-}
-
-/* ---------------- Enlaces ---------------- */
-
-a {
-    color: var(--userena-azul);
-}
-
-a:hover {
-    color: var(--userena-azul-hover);
+  font-family: 'Montserrat', sans-serif;
+  background: #f2f3f5;
+  margin: 0;
 }
 
 
-/* ===============================
-   Header institucional USERENA
-   =============================== */
 
-.userena-header {
-    background-color: #ffffff;
-    position: relative;
-    z-index: 10;
+/* ══════════════════════════════════════
+    Enlaces de interés
+══════════════════════════════════════ */
+.site-footer {
+    background: #3d1eb2;   /* morado institucional */
+    color: rgba(255, 255, 255, 0.88);
+    padding: 2.8rem 0 2rem;
 }
 
-/* Logo */
-.logo-userena {
-    height: 56px;
-}
-
-.logo-text {
-    line-height: 1.1;
-}
-
-.logo-title {
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--userena-azul);
-    text-transform: uppercase;
-}
-
-.logo-subtitle {
-    font-size: 0.75rem;
-    color: #6c757d;
-    letter-spacing: 1px;
-}
-
-/* Navegación */
-.userena-nav {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.userena-nav .nav-link {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #333;
-    padding: 0;
-}
-
-.userena-nav .nav-link:hover,
-.userena-nav .nav-link.active {
-    color: var(--userena-azul);
-    text-decoration: none;
-}
-
-/* Franja curva inferior */
-.userena-wave {
-    height: 32px;
-    background-color: var(--userena-azul);
-    border-top-right-radius: 60px;
-    border-top-left-radius: 0;
-}
-
-
-/* ===============================
-   Footer institucional USERENA
-   =============================== */
-
-.userena-footer {
-    background-color: #2f2d5b; /* azul/morado institucional */
-    color: #ffffff;
-    padding: 3rem 0;
-    font-size: 0.9rem;
-}
-
-.userena-footer h6 {
+/* Títulos de columna */
+.footer-heading {
+    font-size: 0.82rem;
     font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    position: relative;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    text-transform: none;
+    letter-spacing: 0.01em;
 }
 
-/* línea rosa bajo títulos */
-.userena-footer h6::after {
-    content: "";
-    display: block;
-    width: 28px;
-    height: 4px;
-    background-color: #e91e63;
-    margin-top: 0.5rem;
-}
-
-.userena-footer ul {
+/* Links */
+.footer-links {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.userena-footer ul li {
-    margin-bottom: 0.5rem;
+.footer-links li {
+    margin-bottom: 0.65rem;
 }
 
-.userena-footer a {
-    color: #ffffff;
+.footer-links a {
+    color: rgba(255, 255, 255, 0.78);
     text-decoration: none;
+    font-size: 0.82rem;
     font-weight: 300;
+    transition: color 0.15s;
 }
 
-.userena-footer a:hover {
+.footer-links a:hover {
+    color: #ffffff;
     text-decoration: underline;
-    color: #9fd3ff;
+}
+
+/* Textos de contacto (no son links) */
+.footer-contact-item {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.82rem;
+    font-weight: 300;
+    margin-bottom: 0.65rem;
+}
+
+.footer-contact-item a {
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.footer-contact-item a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Divisores verticales entre columnas (solo desktop) */
+@media (min-width: 768px) {
+    .footer-col-divider {
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 2rem;
+    }
+}
+
+/* Responsive: separar columnas en móvil */
+@media (max-width: 767px) {
+    .footer-col + .footer-col {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
 }
 
 
-/* ===============================
-   Responsive Header
-   =============================== */
 
-.menu-toggle {
-    font-size: 1.5rem;
-    background: none;
+/* ══════════════════════════════════════
+       FOOTER
+══════════════════════════════════════ */
+/* footer */
+.subtitle {
+    text-transform: none;
+    color: #fff !important;
+}
+
+
+.subtitle a {
+    text-transform: none;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.divider {
+    width: 50px;
+    height: 4px;
+    padding: 0;
+    margin: 21px 0 21px;
+    background: #E6325A;
     border: none;
-    color: var(--userena-azul);
+    opacity: 1 !important;
+    border-radius: 2px;
 }
 
-/* Menú móvil */
-.userena-nav-mobile {
-    display: none;
-    background-color: #ffffff;
-    border-top: 1px solid #ddd;
+.hr {
+    height: 1px;
+    padding: 0px;
 }
 
-.userena-nav-mobile a {
-    display: block;
-    padding: 0.75rem 1rem;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    border-bottom: 1px solid #eee;
-    color: #333;
-}
-
-.userena-nav-mobile a:hover {
-    background-color: #f5f5f5;
-}
-
-/* Activo */
-.userena-nav-mobile.active {
-    display: block;
-}
-
-
-/* ===============================
-   Footer responsive
-   =============================== */
-
-@media (max-width: 768px) {
-    .userena-footer {
-        text-align: left;
-    }
-
-    .userena-footer .footer-col {
-        margin-bottom: 2rem;
-    }
-
-    .userena-footer h6 {
-        font-size: 0.9rem;
-    }
-
-    .userena-footer ul li {
-        margin-bottom: 0.75rem;
-    }
+.bg-gray-light {
+    background: #b5b5b5;
+    fill: #b5b5b5;
 }
