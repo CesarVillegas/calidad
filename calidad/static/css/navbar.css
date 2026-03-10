@@ -3,12 +3,16 @@
    NAVBAR
 ══════════════════════════════════════ */
 .site-nav {
-  background: var(--blanco);
-  border-bottom: 1px solid var(--borde);
+  /* background: var(--blanco);
+  border-bottom: 1px solid var(--borde); */
+  background-color: #f2f3f5;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: var(--sombra-nav);
+  /* box-shadow: var(--sombra-nav); */
+  border-bottom: var(--gris-link) solid 1px;
+  padding-top: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .nav-inner {
@@ -18,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 66px;
+  height: 90px;
   /* height: 70px; */
 }
 
@@ -85,7 +89,7 @@
   align-items: center;
   gap: 4px;
   padding: 0 0.95rem;
-  height: 66px;
+  height: 90px;
   /* height: 70px; */
   color: var(--gris-link);
   font-size: 0.84rem;

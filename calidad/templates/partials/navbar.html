@@ -2,7 +2,7 @@
 <!-- ══════════════════════════════════════
      NAVBAR
 ══════════════════════════════════════ -->
-<nav class="site-nav">
+<nav class="site-nav container-xl">
   <div class="nav-inner">
 
     <!-- Logo -
@@ -25,7 +25,7 @@
       </div> --
     </a>-->
 
-    <a href="#" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="{% static 'images/logos/logo-userena.png' %}" alt="Universidad de La Serena" class="nav-logo-img">
     </a>
 
@@ -38,17 +38,19 @@
     <ul class="nav-menu" id="nav-menu">
 
       <!-- Inicio -->
-      <li class="nav-item active">
-        <a href="#" class="nav-link-btn">Inicio</a>
+      <li class="nav-item {% if request.resolver_match.view_name == 'home:index' %}active{% endif %}">
+        <a href="{% url 'home:index' %}" class="nav-link-btn">Inicio</a>
       </li>
 
       <!-- Quiénes Somos (sin submenú) -->
-      <li class="nav-item">
+      <li class="nav-item {% if request.resolver_match.view_name == 'home:somos' %}active{% endif %}">
         <a href="{% url 'home:somos' %}" class="nav-link-btn">Quiénes Somos</a>
       </li>
 
+      
+
       <!-- Calidad -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <button class="nav-link-btn" data-toggle="dropdown">
           Calidad <i class="bi bi-chevron-down caret"></i>
         </button>
@@ -63,7 +65,7 @@
             <a href="#" class="dropdown-link">Política de Gestión Integral de la Calidad</a>
           </li>
           <li class="dropdown-divider-custom"></li>
-          <!-- Sub-submenú -->
+          -- Sub-submenú --
           <li class="dropdown-item-custom">
             <button class="dropdown-link" data-toggle="submenu">
               <strong>Sistema de Gestión Integral de la Calidad</strong>
@@ -75,20 +77,69 @@
             </ul>
           </li>
         </ul>
+      </li> -->
+
+      {% with resolver=request.resolver_match.view_name %}
+      <li class="nav-item {% if resolver == 'home:calidad_organizacion' or resolver == 'home:calidad_definicion' or resolver == 'home:calidad_politica' or resolver == 'home:ciclo_phva' or resolver == 'home:mecanismos_sgic' %}active{% endif %}">
+        <button class="nav-link-btn" data-toggle="dropdown">
+          Calidad <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu-custom">
+          <li class="dropdown-item-custom">
+            <a href="{% url 'home:calidad_organizacion' %}" 
+              class="dropdown-link {% if resolver == 'home:calidad_organizacion' %}active{% endif %}">
+              Organización y responsabilidades
+            </a>
+          </li>
+          <li class="dropdown-item-custom">
+            <a href="{% url 'home:calidad_definicion' %}" 
+              class="dropdown-link {% if resolver == 'home:calidad_definicion' %}active{% endif %}">
+              Definición de Calidad USerena
+            </a>
+          </li>
+          <li class="dropdown-item-custom">
+            <a href="{% url 'home:calidad_politica' %}" 
+              class="dropdown-link {% if resolver == 'home:calidad_politica' %}active{% endif %}">
+              Política de Gestión Integral de la Calidad
+            </a>
+          </li>
+          <li class="dropdown-divider-custom"></li>
+          <li class="dropdown-item-custom">
+            <button class="dropdown-link" data-toggle="submenu">
+              <strong>Sistema de Gestión Integral de la Calidad</strong>
+              <i class="bi bi-chevron-right arrow"></i>
+            </button>
+            <ul class="submenu">
+              <li>
+                <a href="{% url 'home:ciclo_phva' %}" 
+                  class="submenu-link {% if resolver == 'home:ciclo_phva' %}active{% endif %}">
+                  Ciclo PHVA
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'home:mecanismos_sgic' %}" 
+                  class="submenu-link {% if resolver == 'home:mecanismos_sgic' %}active{% endif %}">
+                  Mecanismos del SGIC
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </li>
+      {% endwith %}
 
       <!-- Acreditación -->
       <li class="nav-item">
         <a href="https://userena.cl/acreditacion-institucional" target="_blank" class="nav-link-btn">Acreditación</a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link-btn">Formación</a>
+      <li class="nav-item {% if request.resolver_match.view_name == 'home:formacion' %}active{% endif %}">
+        <a href="{% url 'home:formacion' %}" class="nav-link-btn">Formación</a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link-btn">Documentos</a>
+      <li class="nav-item {% if request.resolver_match.view_name == 'home:documentos' %}active{% endif %}">
+        <a href="{% url 'home:documentos' %}" class="nav-link-btn">Documentos</a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link-btn">Multimedia</a>
+      <li class="nav-item {% if request.resolver_match.view_name == 'home:multimedia' %}active{% endif %}">
+        <a href="{% url 'home:multimedia' %}" class="nav-link-btn">Multimedia</a>
       </li>
 
       <!-- <li class="nav-item">
