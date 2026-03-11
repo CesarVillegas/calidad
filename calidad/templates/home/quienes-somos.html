@@ -3,9 +3,129 @@
 {% block title %}Quiénes Somos{% endblock %}
 
 {% block content %}
-<div class="page-content container-xl">
+
+<div class="container-xl">
   <h1 class="hero-title">
     Quiénes Somos
   </h1>
 </div>
+
+<div style="background-color: #fff;">
+ <!-- Con bordes redondeados -->
+   <div class="col-md-12 mb-4 text-center">
+     <img src="{% static 'images/somos.png' %}" class="img-fluid rounded " alt="descripción">
+   </div>
+</div>
+
+<div class="page-content container-xl">
+
+ 
+
+   <!-- ── CARDS ───────────────────────────────────────────── -->
+  <section class="cards-section">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- DIDEC destacado -->
+        <div class="col-12 col-md-3">
+          <div class="info-card featured">
+            <span class="card-sigla">DIDEC</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec finibus neque. Pellentesque sollicitudin, magna eget porttitor vestibulum, sapien lacus venenatis libero, et pharetra nunc augue ac libero. Curabitur ultricies odio ultricies, pellentesque mi ut, fermentum massa. Aenean ullamcorper mattis vulputate. Vestibulum in mi eu ante mattis pellentesque. Phasellus tempus ultricies lorem a molestie. Aliquam venenatis sem a risus tincidunt posuere.</p>
+          </div>
+        </div>
+
+        <!-- OAI -->
+        <div class="col-12 col-md-3">
+          <div class="info-card">
+            <span class="card-sigla">OAI</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec finibus neque. Pellentesque sollicitudin, magna eget porttitor vestibulum, sapien lacus venenatis libero, et pharetra nunc augue ac libero. Curabitur ultricies odio ultricies, pellentesque mi ut, fermentum massa. Aenean ullamcorper mattis vulputate. Vestibulum in mi eu ante mattis pellentesque. Phasellus tempus ultricies lorem a molestie. Aliquam venenatis sem a risus tincidunt posuere.</p>
+          </div>
+        </div>
+
+        <!-- OAA -->
+        <div class="col-12 col-md-3">
+          <div class="info-card">
+            <span class="card-sigla">OAA</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec finibus neque. Pellentesque sollicitudin, magna eget porttitor vestibulum, sapien lacus venenatis libero, et pharetra nunc augue ac libero. Curabitur ultricies odio ultricies, pellentesque mi ut, fermentum massa. Aenean ullamcorper mattis vulputate. Vestibulum in mi eu ante mattis pellentesque. Phasellus tempus ultricies lorem a molestie. Aliquam venenatis sem a risus tincidunt posuere.</p>
+          </div>
+        </div>
+
+        <!-- OGIC -->
+        <div class="col-12 col-md-3">
+          <div class="info-card">
+            <span class="card-sigla">OGIC</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec finibus neque. Pellentesque sollicitudin, magna eget porttitor vestibulum, sapien lacus venenatis libero, et pharetra nunc augue ac libero. Curabitur ultricies odio ultricies, pellentesque mi ut, fermentum massa. Aenean ullamcorper mattis vulputate. Vestibulum in mi eu ante mattis pellentesque. Phasellus tempus ultricies lorem a molestie. Aliquam venenatis sem a risus tincidunt posuere.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+</div>
+
+
+  <style>
+    :root {
+      --purple:     #4B3FC7;
+      --purple-dark:#3730A3;
+      --purple-light:#EEF0FF;
+      --gray-bg:    #F4F5F7;
+      --line:       #4B3FC7;
+      --text:       #1E1B3A;
+      --muted:      #6B7280;
+    }
+
+     /* ── CARDS SECTION ───────────────────────────────────── */
+    .cards-section {
+      background: var(--gray-bg);
+      padding: 50px 20px;
+    }
+
+    .info-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 24px;
+      height: 100%;
+      border: 1px solid #E5E7EB;
+      transition: box-shadow .2s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 8px 24px rgba(75,63,199,.10);
+    }
+
+    .info-card .card-sigla {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .info-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Tarjeta destacada DIDEC */
+    .info-card.featured {
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+
+    .info-card.featured .card-sigla,
+    .info-card.featured p {
+      color: rgba(255,255,255,.85);
+    }
+
+    .info-card.featured .card-sigla {
+      color: #fff;
+    }
+  </style>
 {% endblock %}
