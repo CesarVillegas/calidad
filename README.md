@@ -134,14 +134,12 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 ```
-Username: admin
-Email: admin@userena.cl
-Password: ********
+ Username (leave blank to use 'desarrollador'): cesar
+Email address: cevillegas@userena.cl
+Password: qwe123
 ~~~
 
-    Username (leave blank to use 'desarrollador'): cesar
-    Email address: cevillegas@userena.cl
-    Password: qwe123
+   
 
 
 Si ya hiciste migrate antes y ahora agregaste campos nuevos

@@ -7,86 +7,28 @@
   <h1 class="hero-title">
     Desarrollo Estratégico<br>y Calidad USerena
   </h1>
-  
-<section class="banner-section">
-  <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-
-    <!-- Indicadores (puntitos) -->
-    <div class="carousel-indicators">
-      {% for banner in banners %}
-      <button type="button"
-              data-bs-target="#bannerCarousel"
-              data-bs-slide-to="{{ forloop.counter0 }}"
-              {% if forloop.first %}class="active"{% endif %}>
-      </button>
-      {% endfor %}
-    </div>
-
-    <!-- Slides -->
-    <div class="carousel-inner">
-      {% for banner in banners %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-
-        <img src="{{ banner.imagen.url }}"
-             class="d-block w-100 banner-img"
-             style="border-radius: 25px;"
-             alt="{{ banner.imagen_alt|default:banner.titulo }}">
-
-        {% if banner.titulo or banner.subtitulo %}
-        <div class="carousel-caption d-none d-md-block">
-          {% if banner.titulo %}
-            <h2>{{ banner.titulo }}</h2>
-          {% endif %}
-          {% if banner.subtitulo %}
-            <p>{{ banner.subtitulo }}</p>
-          {% endif %}
-          {% if banner.url %}
-            <a href="{{ banner.url }}"
-               class="btn btn-primary"
-               {% if banner.url_externa %}target="_blank" rel="noopener"{% endif %}>
-              {{ banner.url_texto|default:'Ver más' }}
-            </a>
-          {% endif %}
-        </div>
-        {% endif %}
-
-      </div>
-      {% endfor %}
-    </div>
-
-    <!-- Flecha anterior -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-
-    <!-- Flecha siguiente -->
-    <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-      <span class="visually-hidden">Siguiente</span>
-    </button>
-
-  </div>
-</section>
-
-
-
+  <!-- <div class="hero-image-box">
+    <span>imagen campus universitario</span>
+  </div> -->
 
 
   <!-- Banner -->
-  <!-- <section class="banner-section">
+  <section class="banner-section">
     <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
 
+      <!-- Indicadores (puntitos) -->
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
         <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
       </div>
 
+      <!-- Slides -->
       <div class="carousel-inner">
 
         <div class="carousel-item active">
           <img src="{% static 'images/banner-1.jpg' %}" class="d-block w-100 banner-img" style="border-radius: 25px;" alt="Banner 1">
+          <!-- Opcional: texto encima de la imagen -->
           <div class="carousel-caption d-none d-md-block">
             <h2>Teatro Experimental</h2>
             <p>Universidad de La Serena</p>
@@ -102,20 +44,20 @@
         </div>
       </div>
 
-
+      <!-- Flecha anterior -->
       <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
         <span class="visually-hidden">Anterior</span>
       </button>
 
-
+      <!-- Flecha siguiente -->
       <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
         <span class="visually-hidden">Siguiente</span>
       </button>
 
     </div>
-  </section> -->
+  </section>
 
 
   <section id="indicadores" style="padding: 2.5rem 0rem;">

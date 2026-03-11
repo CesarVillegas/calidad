@@ -1,7 +1,14 @@
 from django.shortcuts import render
+from .models import Banner
+
 
 def index(request):
-    return render(request, 'home/index.html')
+    banners = Banner.objects.filter(activo=True).order_by('orden')
+    context = {
+        'banners': banners,
+    }
+    return render(request, 'home/index.html', context)
+
 
 def somos(request):
     return render(request, 'home/quienes-somos.html')

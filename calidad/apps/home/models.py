@@ -11,7 +11,7 @@ class Banner(models.Model):
     imagen = models.ImageField(
         upload_to='banners/',
         validators=[validar_extension_imagen, validar_resolucion_banner],
-        help_text='JPG, PNG o WEBP. Resolución recomendada: 1920×600px. Mínimo: 1200×400px.'
+        help_text='JPG, PNG o WEBP. Resolución recomendada: 1920×600px. Mínimo: 1200×375px.'
     )
     imagen_alt  = models.CharField(max_length=200, blank=True)  # accesibilidad
 

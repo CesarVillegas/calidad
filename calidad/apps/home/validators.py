@@ -17,16 +17,13 @@ def validar_resolucion_banner(value):
     imagen = Image.open(value)
     ancho, alto = imagen.size
 
-    ANCHO_MIN, ALTO_MIN = 1200, 400
-    ANCHO_MAX, ALTO_MAX = 3840, 1080
+    resoluciones_validas = [
+        (1920, 600),
+        (1200, 375),
+    ]
 
-    if ancho < ANCHO_MIN or alto < ALTO_MIN:
+    if (ancho, alto) not in resoluciones_validas:
         raise ValidationError(
-            f'Resolución mínima {ANCHO_MIN}×{ALTO_MIN}px. '
-            f'Imagen subida: {ancho}×{alto}px.'
-        )
-    if ancho > ANCHO_MAX or alto > ALTO_MAX:
-        raise ValidationError(
-            f'Resolución máxima {ANCHO_MAX}×{ALTO_MAX}px. '
-            f'Imagen subida: {ancho}×{alto}px.'
+            f'Resolución no permitida ({ancho}×{alto}px). '
+            f'Use: 1920×600px o 1200×375px.'
         )
