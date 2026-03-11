@@ -3,12 +3,71 @@
 {% block title %}Calidad Userena{% endblock %}
 
 {% block content %}
-<div class="page-content">
+<div class="page-content container-xl">
   <h1 class="hero-title">
     Desarrollo Estratégico<br>y Calidad USerena
   </h1>
-  <div class="hero-image-box">
+  <!-- <div class="hero-image-box">
     <span>imagen campus universitario</span>
-  </div>
+  </div> -->
+
+
+  <!-- Banner -->
+  <section class="banner-section">
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+      <!-- Indicadores (puntitos) -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <img src="{% static 'images/banner-1.jpg' %}" class="d-block w-100 banner-img" style="border-radius: 25px;" alt="Banner 1">
+          <!-- Opcional: texto encima de la imagen -->
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Teatro Experimental</h2>
+            <p>Universidad de La Serena</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="{% static 'images/banner-2.jpg' %}" class="d-block w-100 banner-img" style="border-radius: 25px;"  alt="Banner 2">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{% static 'images/banner-3.jpg' %}" class="d-block w-100 banner-img" style="border-radius: 25px;" alt="Banner 3">
+        </div>
+      </div>
+
+      <!-- Flecha anterior -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+
+      <!-- Flecha siguiente -->
+      <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+
+    </div>
+  </section>
+
+
+  <section id="indicadores" style="padding: 2.5rem 0rem;">
+    <h2 class="hero-title text-center reveal">
+    Indicadores de calidad
+    </h2>
+
+    <p>Referencia: <a href="https://calidad.utem.cl/indicadores-institucionales/" target="_blank" rel="noopener noreferrer">Indicadores Institucionales UTEM</a></p>
+  </section>
+
+
 </div>
 {% endblock %}

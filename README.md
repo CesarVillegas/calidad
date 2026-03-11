@@ -3,32 +3,13 @@
 Proyecto desarrollado con **Django** utilizando **entorno virtual (venv)** y control de versiones con **Git/GitHub**.
 
 ## 📌 Requisitos
-- Python 3.10+ (probado con Python 3.13)
-- pip
-- Git
+- Python 3.10+ (probado con Python 3.13) - `pip` - `Git`
 
 
 ### Django
 
-* Django 5.2 fue lanzado el 2 de abril de 2025 y está designado como release LTS, con soporte de seguridad garantizado por al menos 3 años. Django
-* La versión patch más reciente disponible hoy es **Django 5.2.12**
-
-
-
-## 📂 Estructura del proyecto
-
-    proyecto_calidad/
-    ├── venv/ # Entorno virtual (no versionado)
-    ├── calidad/ # Proyecto Django
-    │ ├── manage.py
-    │ └── calidad/
-    │ ├── settings.py
-    │ ├── urls.py
-    │ ├── wsgi.py
-    │ └── asgi.py
-    ├── requirements.txt
-    ├── .gitignore
-    └── README.md
+* Django 5.2 fue lanzado el 2 de abril de 2025 y está designado como **release LTS**, con soporte de seguridad garantizado por al menos 3 años. 
+* Django La versión patch más reciente disponible hoy es **Django 5.2.12**
 
 
 ## ⚙️ Configuración del entorno
@@ -36,11 +17,10 @@ Proyecto desarrollado con **Django** utilizando **entorno virtual (venv)** y con
 ### 1️⃣ Crear entorno virtual
 
 ```bash
-
-1️⃣ Clonar el repositorio
+# 1️⃣ Clonar el repositorio
 git clone <url-del-repositorio>
 
-2️⃣ Instalar y Activar entorno virtual
+# 2️⃣ Instalar y Activar entorno virtual
 python3 -m venv venv
 source venv/bin/activate 
 which python
@@ -53,8 +33,83 @@ python -m django --version
 
 # Iniciar servidor de desarrollo
 python manage.py runserver
+```
+
+### Configuración por entornos (settings/) Desarrollo y Producción
+
+El archivo **settings.py** por defecto se reemplaza por un paquete con tres módulos:
 
 ```
+calidad/
+└── settings/
+    ├── base.py   ← configuración común a todos los entornos
+    ├── dev.py    ← sobreescribe base.py para desarrollo local
+    └── prod.py   ← sobreescribe base.py para producción
+```
+
+* **base.py** contiene todo lo que es compartido: INSTALLED_APPS, TEMPLATES, MIDDLEWARE, etc.
+* **dev.py** importa base y añade configuración local: DEBUG = True, base de datos SQLite, django-debug-toolbar, etc.
+* **prod.py** importa base y endurece la configuración: DEBUG = False, base de datos PostgreSQL, variables de entorno para secrets, ALLOWED_HOSTS, etc.
+
+
+## Activar el Entorno Correcto
+
+### manage.py (desarrollo local):
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'calidad.settings.dev')
+
+
+### wsgi.py (producción — manage.py no se usa en producción):
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'calidad.settings.prod')
+
+
+## base.py — Puntos clave y variables de entorno
+
+Estructura recomendada de base.py
+
+~~~python
+from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  # ⚠️ tres niveles arriba por el paquete settings/
+
+load_dotenv(BASE_DIR / '.env')
+~~~
+
+
+Variables críticas que siempre van en **.env**
+
+~~~
+# .env
+SECRET_KEY=django-insecure-xxxxxxxxxxxxxxxxxxxx
+DEBUG=True
+
+# Base de datos
+DB_NAME=calidad_db
+DB_USER=postgres
+DB_PASSWORD=supersecret
+DB_HOST=localhost
+DB_PORT=5432
+
+# Correo (si aplica)
+EMAIL_HOST_USER=no-reply@dominio.cl
+EMAIL_HOST_PASSWORD=password
+~~~
+
+## Dependencia necesaria
+
+~~~bash
+pip install python-dotenv
+~~~
+
+O con el enfoque más robusto usando django-environ:
+
+~~~bash
+pip install django-environ  # maneja cast de tipos, listas y URLs de DB automáticamente
+~~~
+
 
 ## Django y MySQL 5.7
 
@@ -123,7 +178,7 @@ Password: qwe123
 6️⃣ Probar en el navegador
 
 
-Buenas prácticas desde ahora
+## Buenas prácticas desde ahora
 
 ✔ Un base.html por proyecto
 ✔ Templates por app (home/)
@@ -209,7 +264,10 @@ proyecto_calidad/
     │
     ├── calidad/                   ← proyecto Django (configuración)
     │   ├── __init__.py
-    │   ├── settings.py
+    │   ├── settings/
+    │   │   ├── base.py   ← configuración común a todos los entornos
+    │   │   ├── dev.py    ← sobreescribe base.py para desarrollo local
+    │   │   └── prod.py   ← sobreescribe base.py para producción
     │   ├── urls.py
     │   ├── asgi.py
     │   └── wsgi.py
@@ -226,6 +284,21 @@ proyecto_calidad/
 
 ~~~
 
+
+## 📂 Estructura del proyecto
+
+    proyecto_calidad/
+    ├── venv/ # Entorno virtual (no versionado)
+    ├── calidad/ # Proyecto Django
+    │ ├── manage.py
+    │ └── calidad/
+    │ ├── settings.py
+    │ ├── urls.py
+    │ ├── wsgi.py
+    │ └── asgi.py
+    ├── requirements.txt
+    ├── .gitignore
+    └── README.md
 
 🧠 Beneficios reales
 

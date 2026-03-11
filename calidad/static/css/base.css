@@ -139,3 +139,9 @@ body {
     background: #b5b5b5;
     fill: #b5b5b5;
 }
+
+
+/* Sobrescribe el ancho de las flechas del carousel */
+.carousel-control-next, .carousel-control-prev {
+  width: 2%;
+}
