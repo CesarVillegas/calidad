@@ -3,7 +3,7 @@
 Proyecto desarrollado con **Django** utilizando **entorno virtual (venv)** y control de versiones con **Git/GitHub**.
 
 ## 📌 Requisitos
-- Python 3.10+ (probado con Python 3.13) - `pip` - `Git`
+- Python 3.10+ - `pip` - `Git`
 
 
 ### Django
@@ -13,8 +13,6 @@ Proyecto desarrollado con **Django** utilizando **entorno virtual (venv)** y con
 
 
 ## ⚙️ Configuración del entorno
-
-### 1️⃣ Crear entorno virtual
 
 ```bash
 # 1️⃣ Clonar el repositorio
@@ -111,6 +109,77 @@ pip install django-environ  # maneja cast de tipos, listas y URLs de DB automát
 ~~~
 
 
+## Datos
+Flujo completo antes del primer migrate
+1. Definir modelos        → models.py, validators.py
+2. Makemigrations         → genera archivos de migración
+3. Migrate                → aplica cambios a la BD
+4. Createsuperuser        → crea el usuario admin
+5. Runserver              → verificar en el admin
+
+
+
+~~~bash
+# 1. Verificar que el modelo no tenga errores de sintaxis
+python manage.py check
+# 2. Generar las migraciones
+python manage.py makemigrations
+# o específico por app
+python manage.py makemigrations home
+# 3. Ver qué va a ejecutar (opcional pero recomendado), Muestra el SQL que se ejecutará — útil para revisar antes de tocar la BD.
+python manage.py sqlmigrate home 0001
+# 4. Aplicar migraciones
+python manage.py migrate
+# 5. Crear superusuario
+python manage.py createsuperuser
+```
+```
+Username: admin
+Email: admin@userena.cl
+Password: ********
+~~~
+
+    Username (leave blank to use 'desarrollador'): cesar
+    Email address: cevillegas@userena.cl
+    Password: qwe123
+
+
+Si ya hiciste migrate antes y ahora agregaste campos nuevos
+
+~~~bash
+# Solo estos dos pasos
+python manage.py makemigrations
+python manage.py migrate
+# No es necesario volver a crear el superusuario, ya existe en la BD.
+
+# Ver estado de migraciones en cualquier momento
+python manage.py showmigrations
+# Una migración con [ ] significa que existe el archivo pero no se ha aplicado a la BD — falta correr migrate.
+~~~
+
+
+### Warning
+
+> home.Banner: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+        HINT: Configure the DEFAULT_AUTO_FIELD setting or the HomeConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+
+Es solo un warning, no un error — pero conviene resolverlo. La solución más limpia es en base.py:
+
+Opción 1 — Global en base.py (recomendado)
+
+~~~bash
+# Aplica a todas las apps del proyecto de una sola vez.
+# settings/base.py
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Django 3.2+ cambió el default a BigAutoField pero no lo fuerza en proyectos existentes para no romper migraciones 
+~~~
+
+
+#****************************************************************************************************************
+# APUNTES
+#****************************************************************************************************************
 ## Django y MySQL 5.7
 
 Django 4.2 fue la última versión en soportar MySQL 5.7
@@ -133,16 +202,7 @@ git branch
 
 
 
-▶️ Ejecutar el proyecto
-python manage.py migrate
 
-## Crear usuario administrador
-
-> python manage.py createsuperuser
-
-Username (leave blank to use 'desarrollador'): cesar
-Email address: cevillegas@userena.cl
-Password: qwe123
 
 
 ## Templates
@@ -278,6 +338,7 @@ proyecto_calidad/
         ├── admin.py
         ├── apps.py
         ├── models.py
+        ├── validators.py   ← aquí van los validadores
         ├── tests.py
         ├── urls.py
         └── views.py
@@ -337,3 +398,9 @@ Footer
 * Espaciado claro
 * Títulos legibles
 * Links cómodos para touch
+
+
+
+## Adminitración de Banners
+
+pip install Pillow
