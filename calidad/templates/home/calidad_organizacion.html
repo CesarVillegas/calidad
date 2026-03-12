@@ -1,11 +1,378 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Calidad Organización{% endblock %}
-
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/calidad_organizacion.css' %}">
+{% endblock %}
 {% block content %}
-<div class="page-content container-xl">
+<div class="container-xl">
   <h1 class="hero-title">
-    Calidad Organización
+    Organización y Responsabilidad
   </h1>
 </div>
+
+<section style="background-color: #fff;">
+<div class="container py-5">
+
+    <!-- Descripción -->
+    <p class="descripcion">
+      El Sistema de Gestión Integral de la Calidad de la Universidad de La Serena, define con claridad los roles de las distintas autoridades y unidades involucradas en su funcionamiento.
+    </p>
+
+    <!-- Grid de cards -->
+    <div class="row g-4">
+
+    <!-- Fila 1 -->
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                  <i class="bi bi-building"></i>
+              </div>
+              <div class="label">Rectoría</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Rectoría</div>
+              <p class="texto-back">
+                  Responsable superior del SGIC, dirige y orienta estratégicamente el cumplimiento integral del sistema y aprueba los resultados de la revisión por la dirección.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                  <i class="bi bi-person-video3"></i>
+              </div>
+              <div class="label">Vicerrectoría Académica</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Vicerrectoría Académica</div>
+              <p class="texto-back">
+                  Gestiona la calidad de la docencia, el currículo, la formación de pregrado y la autorregulación académica.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-book"></i>
+              </div>
+              <div class="label">Vicerrectoría de Investigación y Postgrado</div>
+          </div>
+          <div class="card-back">
+              <div class="titulo-back">Vicerrectoría de Investigación y Postgrado</div>
+              <p class="texto-back">
+                  Gestiona la calidad de la docencia en investigación, creación y/o innovación y programas académicos de postgrado y la autorregulación académica.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+     <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                  <i class="bi bi-mortarboard"></i>
+              </div>
+              <div class="label">Vicerrectoría de Asuntos Económicos y Administrativos</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back"></div>
+              <p class="texto-back">
+                  Gestiona la calidad orientando la conducción económica-financiera y de la gestión administrativa institucional, asegurando sostenibilidad, probidad, eficiencia del gasto y soporte operativo al cumplimiento del PDI.
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-people"></i>
+              </div>
+              <div class="label">Dirección General de Asuntos Estudiantiles</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back"></div>
+              <p class="texto-back">
+                  Gestiona la calidad de los servicios estudiantiles.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-clipboard-check"></i>
+              </div>
+              <div class="label">Dirección de Desarrollo Estratégico y Calidad</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Dirección de Desarrollo Estratégico y Calidad</div>
+              <p class="texto-back">
+                  Gestiona la calidad a partir del diseño, implementación, seguimiento y actualización del SGIC.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-diagram-3"></i>
+              </div>
+              <div class="label">Dirección de Gestión Estratégica Institucional</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Dirección de Gestión Estratégica Institucional</div>
+              <p class="texto-back">
+                  Gestiona la calidad a partir del diseño, implementación, seguimiento y actualización del Plan de Desarrollo Institucional y normativa vigente.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-bank"></i>
+              </div>
+              <div class="label">Facultades</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Facultades</div>
+              <p class="texto-back">
+                 Unidades académicas que agrupan carreras, programas y departamentos afines en torno a un área (por ejemplo, Facultad de Ciencias, Facultad de Ingeniería, etc.). Tienen como función principal la docencia, investigación, vinculación con el medio y gestión académica, en coherencia con los lineamientos institucionales.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-person-badge"></i>
+              </div>
+              <div class="label">Decanos(as)</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Decanos(as)</div>
+              <p class="texto-back">
+                  Responsables de liderar la gestión académica, administrativa y estratégica de la unidad. La Decanatura coordina los departamentos, programas y actividades de la Facultad, asegurando el cumplimiento de sus objetivos y la calidad de sus procesos.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-person-workspace"></i>
+              </div>
+              <div class="label">Directores(as) de Escuela</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Directores(as) de Escuela</div>
+              <p class="texto-back">
+                  Responsables de ejecutar los procesos operativos en un marco de mejora continua de la calidad de la carrera, basado en el análisis del entorno, el rediseño, los insumos, los procesos y los resultados, así como de registrar la información correspondiente en los sistemas institucionales.
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-person-gear"></i>
+              </div>
+              <div class="label">Directores(as) de Departamento</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Directores(as) de Departamento</div>
+              <p class="texto-back">
+                  Responsables de asegurar que la gestión de las funciones académicas, se realicen con calidad, en base a un ciclo activo de mejora continua.
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-person-lines-fill"></i>
+              </div>
+              <div class="label">Directores(as) de Carrera</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Directores(as) de Carrera</div>
+              <p class="texto-back">
+                  Responsables de ejecutar los procesos operativos en un marco de mejora continua de la calidad de la carrera, basado en el análisis del entorno, el rediseño, los insumos, los procesos y los resultados, así como de registrar la información correspondiente en los sistemas institucionales.
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-person-video2"></i>
+              </div>
+              <div class="label">Coordinadores(as) de Carrera</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Coordinadores(as) de Carrera</div>
+              <p class="texto-back">
+                  Encargado(a)s de apoyar al Director de Escuela en la ejecución de los procesos operativos y registro de la información en los sistemas institucionales.
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="label">Comités de Mejora Continua</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Comités de Mejora Continua</div>
+              <p class="texto-back">
+                  Encargados de asesorar, validar y coordinar las acciones de mejora en cada unidad.
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="org-card">
+          <!-- Frente -->
+          <div class="card-front">
+              <div class="icon-circle">
+                <i class="bi bi-diagram-3-fill"></i>
+              </div>
+              <div class="label">Funcionarios(as) y académicos(as)</div>
+          </div>
+          <!-- Reverso -->
+          <div class="card-back">
+              <div class="titulo-back">Funcionarios(as) y académicos(as)</div>
+              <p class="texto-back">
+                  Participantes activos de la implementación de los planes, aportando evidencias y retroalimentación.
+              </p>
+          </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+<!-- Niveles de Gestión de la Calidad -->
+<div class="container py-5"> 
+  <center>
+    <h2>Niveles de Gestión de la Calidad</h2></center>
+
+
+
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <!-- Nivel 1 -->
+      <div class="col-12 col-md-6">
+        <div class="container py-4">
+
+    <div class="nivel">
+        <div class="nivel-titulo">Nivel Estratégico</div>
+        <div class="nivel-texto">
+            Corresponde al ámbito superior de dirección institucional, encabezado por la Rectoría,
+            Vicerrectorías, DGAE y Decanaturas. Su rol es definir las políticas institucionales,
+            tomar decisiones con alcance integral y evaluar de forma global del sistema.
+        </div>
+    </div>
+
+    <div class="nivel">
+        <div class="nivel-titulo">Nivel Táctico</div>
+        <div class="nivel-texto">
+            Constituye el ámbito de coordinación y gestión intermedia, integrado por las facultades,
+            direcciones, unidades de administración central (direcciones) y comités de mejora continua.
+            Su función principal es operacionalizar las políticas institucionales, traduciendo los
+            lineamientos estratégicos en acciones concretas, metas y resultados medibles.
+        </div>
+    </div>
+
+    <div class="nivel">
+        <div class="nivel-titulo">Nivel Operativo</div>
+        <div class="nivel-texto">
+            Comprende los programas académicos de pregrado y postgrado, integrado por las unidades
+            académicas, directores de departamento, directores de escuela, directores de carrera,
+            directores de programas, coordinadores de carrera, y por las unidades de administración
+            central (departamentos y oficinas). Su función es ejecutar los procesos, registrar
+            evidencias y participar activamente en la mejora continua.
+        </div>
+    </div>
+
+</div>
+      </div>
+      <div class="col-12 col-md-6">
+        <img src="{% static 'images/somos.png' %}" class="img-fluid rounded " alt="descripción">
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+
+
 {% endblock %}

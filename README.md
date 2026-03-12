@@ -402,3 +402,48 @@ Footer
 ## Adminitración de Banners
 
 pip install Pillow
+
+
+
+
+
+1. ¿Cuándo hacer una sección autoadministrable?
+La regla general es: si el contenido cambia con frecuencia y quien lo edita no es desarrollador, hazlo administrable.
+
+Criterios para hacerlo administrable (modelo + admin Django):
+
+* Textos, imágenes o links que el cliente querrá cambiar sin pedirte a ti
+* Contenido que varía por instancia (noticias, eventos, autoridades, documentos)
+* Listas que crecen: equipo, proyectos, normativas
+
+Criterios para dejarlo hardcodeado en template:
+
+* Contenido estructural que nunca cambia (footer legal, logos, estructura de nav)
+* Secciones que solo tú tocas como desarrollador
+* Prototipos o páginas en construcción
+
+
+## 3. Flujo de `makemigrations` / `migrate`
+```
+Local:
+  editas models.py
+      ↓
+  makemigrations  → genera archivo 0001_xxx.py en migrations/
+      ↓
+  migrate         → aplica el cambio a tu BD local
+      ↓
+  commit del archivo de migración al repositorio
+
+Producción:
+  git pull        → trae el nuevo archivo de migración
+      ↓
+  migrate         → aplica el cambio a la BD de producción
+  (NUNCA makemigrations en producción)
+
+
+## Reglas de oro:
+
+* Los archivos de migración van siempre al repositorio — son el historial de cambios del esquema
+* En producción solo ejecutas migrate, nunca makemigrations
+* Si dos desarrolladores hacen migraciones en paralelo, Django detecta el conflicto y puedes resolverlo con makemigrations --merge
+* Antes de migrate en producción, siempre haz backup de la BD

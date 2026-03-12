@@ -1,0 +1,118 @@
+:root {
+    --color-morado: #3d2f9e;
+    --color-morado-icon: #4a3ab5;
+    --color-fondo: #f0f0f0;
+    --color-card: #e8e8e8;
+}
+
+.descripcion {
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Contenedor que controla la altura y el overflow */
+.org-card {
+    background-color: var(--color-card);
+    border-radius: 16px;
+    padding: 2rem 1rem 1.5rem;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.org-card:hover {
+    background-color: var(--color-morado-icon);
+    box-shadow: 0 6px 20px rgba(61, 47, 158, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Cara frontal: ícono + label */
+.card-front {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.org-card:hover .card-front {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Cara trasera: texto descriptivo */
+.card-back {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.org-card:hover .card-back {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-back .titulo-back {
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+.card-back .texto-back {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+/* Resto sin cambios */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-morado-icon);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+}
+
+.icon-circle i {
+    font-size: 2rem;
+    color: white;
+}
+
+.org-card .label {
+    color: var(--color-morado);
+    font-weight: 600;
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
+
+
+.nivel-titulo{
+    font-weight:600;
+    color:#4a4a4a;
+    margin-bottom:6px;
+}
+
+.nivel-texto{
+    color:#8a8a8a;
+    line-height:1.5;
+    font-size:0.95rem;
+    text-align: justify;
+}
+
+.nivel{
+    margin-bottom:28px;
+}
