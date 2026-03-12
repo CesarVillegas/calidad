@@ -116,3 +116,27 @@
 .nivel{
     margin-bottom:28px;
 }
+
+
+
+.lista-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px 40px;
+  padding-left:18px;
+}
+
+.lista-grid li{
+  margin-bottom:4px;
+}
+
+@media (min-width:768px){
+  .lista-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+
+.bg-morado {
+    background-color: var(--color-morado);
+}

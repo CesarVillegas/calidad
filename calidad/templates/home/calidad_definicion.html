@@ -1,11 +1,44 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Calidad Definición{% endblock %}
-
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/calidad_organizacion.css' %}">
+{% endblock %}
 {% block content %}
-<div class="page-content container-xl">
+<div class="container-xl">
   <h1 class="hero-title">
     Calidad Definición
   </h1>
 </div>
+
+<section style="background-color: #fff;">
+<div class="container py-5">
+
+
+   <div class="col-md-12 mb-4 text-center">
+     <img src="{% static 'images/somos.png' %}" class="img-fluid rounded rounded-3"  alt="calidad">
+   </div>
+
+
+  <div class="nivel">
+        <div class="nivel-titulo pb-5">¿Qué es la Calidad para nosotros?</div>
+        <div class="nivel-texto">
+            La Calidad en la Universidad de La Serena se concibe como un valor esencial y un atributo transversal
+que orienta todas las dimensiones del quehacer universitario. Se expresa en el cumplimiento de su
+misión, visión y propósitos estratégicos, promoviendo la excelencia, la equidad, la pertinencia
+territorial y la responsabilidad social. Es un proceso dinámico, participativo y perfectible, sustentado
+en la mejora continua y el aprendizaje organizacional.
+<br><br>
+La cultura de la calidad es el eje del Sistema de Gestión Integral de la Calidad (SGIC) y se construye a
+partir de la participación, el compromiso y la coherencia de toda la comunidad universitaria. Se
+expresa en la participación activa, la transparencia y rendición de cuentas, el aprendizaje
+institucional, la innovación y mejora continua. Para fortalecer esta cultura, se impulsa un liderazgo
+que dirige el desarrollo, implementación y mejora continua del SGIC, asegurando su coherencia con
+las políticas, estrategias, recursos, procesos, personas y alianzas estratégicas, promoviendo una
+gestión estratégica y sistemática que fortalece equipos, desarrolla la visión de procesos, gestiona el
+cambio y genera un ambiente propicio para alcanzar los objetivos de la Institución.
+        </div>
+    </div>
+</div>
+</section> 
 {% endblock %}
