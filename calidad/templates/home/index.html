@@ -117,84 +117,70 @@
     </div>
   </section> -->
 
+{% if indicadores %}
+
+    <section style="background-color: #fff;">
+    <div class="container py-5">
+      <h2 class="hero-title text-center mb-5">
+        Indicadores de Calidad Institucional
+      </h2>
 
 
-<section style="background-color: #fff;">
-<div class="container py-5">
-  <h2 class="hero-title text-center mb-5">
-    Indicadores de Calidad Institucional
-  </h2>
+        <div class="row g-3">
+          {% for ind in indicadores %}
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card border-0 text-center p-4 h-100">
+                <div class="card-body p-2">
+                  <h2 class="fw-light mb-1 counter" 
+                      data-target="{{ ind.valor }}" 
+                      style="font-size: 3rem; color: #3333cc;">0</h2>
+                  <p class="small mb-0">{{ ind.nombre }}</p>
+                  {% if ind.descripcion %}
+                    <p class="text-muted mt-2" style="font-size: 0.75rem;">{{ ind.descripcion }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <p>Referencia: <a href="https://calidad.utem.cl/indicadores-institucionales/" target="_blank" rel="noopener noreferrer">Indicadores Institucionales UTEM</a></p>
+    </section>
+
+{% endif %}
 
 
-    <div class="row g-3">
-      <div class="col-md-3">
-        <!-- <div class="card border-0 shadow-sm text-center p-4"></div> -->
-        <div class="card border-0 text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">497</h2>
-            <p class="text-muted small mb-0">Nombre del indicador</p> <!-- text-muted -->
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card border-0 shadow-sm text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">128</h2>
-            <p class="text-muted small mb-0">Otro indicador</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-3">
-        <div class="card border-0 shadow-sm text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">128</h2>
-            <p class="text-muted small mb-0">Otro indicador</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-3">
-        <div class="card border-0 shadow-sm text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">128</h2>
-            <p class="text-muted small mb-0">Otro indicador</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-3">
-        <div class="card border-0 shadow-sm text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">128</h2>
-            <p class="text-muted small mb-0">Otro indicador</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-3">
-        <div class="card border-0 shadow-sm text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">128</h2>
-            <p class="text-muted small mb-0">Otro indicador</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-3">
-        <div class="card border-0 shadow-sm text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">128</h2>
-            <p class="text-muted small mb-0">Otro indicador</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-3">
-        <div class="card border-0 shadow-sm text-center p-4">
-          <div class="card-body p-2">
-            <h2 class="fw-light mb-1" style="font-size: 3rem; color: #3333cc;">128</h2>
-            <p class="text-muted small mb-0">Otro indicador</p>
-          </div>
-        </div>
-      </div>
-    </div>
+{% endblock %}
+{% block extra_js %}
 
-    <p>Referencia: <a href="https://calidad.utem.cl/indicadores-institucionales/" target="_blank" rel="noopener noreferrer">Indicadores Institucionales UTEM</a></p>
-</section>
+<script>
+// Al final del template o en tu JS
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = document.querySelectorAll('.counter');
 
+  counters.forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    
+    // Si el valor no es numérico, mostrarlo directo (ej: "85%", "N/A")
+    if (isNaN(target)) {
+      counter.textContent = counter.dataset.target;
+      return;
+    }
+
+    const duration = 1500; // milisegundos
+    const step = Math.ceil(target / (duration / 16)); // ~60fps
+
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        counter.textContent = target.toLocaleString('es-CL');
+        clearInterval(timer);
+      } else {
+        counter.textContent = current.toLocaleString('es-CL');
+      }
+    }, 16);
+  });
+});
+</script>
 {% endblock %}

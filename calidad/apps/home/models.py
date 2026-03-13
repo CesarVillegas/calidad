@@ -37,3 +37,19 @@ class Banner(models.Model):
 
     def __str__(self):
         return self.titulo or f'Banner #{self.pk}'
+
+
+
+class Indicador(models.Model):
+    nombre = models.CharField(max_length=200)
+    valor = models.CharField(max_length=100)
+    descripcion = models.TextField(blank=True)
+    activo      = models.BooleanField(default=True)
+    orden       = models.PositiveSmallIntegerField(default=0)   # para ordenar la visualización
+
+    class Meta:
+        verbose_name = 'Indicador'
+        verbose_name_plural = 'Indicadores'
+
+    def __str__(self):
+        return self.nombre

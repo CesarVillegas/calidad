@@ -1,12 +1,15 @@
 from django.shortcuts import render
-from .models import Banner
+from .models import Banner, Indicador
 
 
 def index(request):
     banners = Banner.objects.filter(activo=True).order_by('orden')
+    indicadores = Indicador.objects.filter(activo=True).order_by('orden')
     context = {
         'banners': banners,
+        'indicadores': indicadores,
     }
+    
     return render(request, 'home/index.html', context)
 
 
