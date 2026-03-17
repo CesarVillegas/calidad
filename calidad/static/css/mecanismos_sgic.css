@@ -1,0 +1,52 @@
+/* Tabla MAIC */
+.maic-outer {
+  border: 1.5px solid #c5c3e8;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.maic-title {
+  background: #f0effa;
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #3d3592;
+  border-bottom: 1.5px solid #c5c3e8;
+}
+.maic-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.maic-table thead th {
+  padding: 10px 12px;
+  background: #f8f8fd;
+  border-bottom: 1px solid #e0dff5;
+  text-align: center;
+  font-weight: 400;
+  color: #6b67b0;
+}
+.maic-table thead th.col-name { width: 44%; text-align: left; }
+.maic-table thead th.col-phase { width: 14%; }
+
+.phase-pill {
+  display: inline-block;
+  background: #e8e7f8;
+  color: #4a44a8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+.maic-table tbody td {
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  color: #555;
+  border-bottom: 1px solid #eeedf8;
+  background: #fff;
+}
+.maic-table tbody tr:last-child td { border-bottom: none; }
+.maic-table tbody tr:hover td     { background: #f5f4fc; }
+.maic-table tbody td.col-name     { color: #3a3a5c; }
+.maic-table tbody td.col-phase    { text-align: center; }
+
+.mark-x { color: #7F77DD; font-size: 0.95rem; font-weight: 500; }

@@ -9,6 +9,7 @@ urlpatterns = [
     path('calidad/organizacion/', views.calidad_organizacion, name='calidad_organizacion'),
     path('calidad/definicion/', views.calidad_definicion, name='calidad_definicion'),
     path('calidad/politica/', views.calidad_politica, name='calidad_politica'),
+    path('calidad/gestion/', views.calidad_gestion, name='calidad_gestion'),
     path('calidad/ciclo-phva/', views.ciclo_phva, name='ciclo_phva'),
     path('calidad/mecanismos-sgic/', views.mecanismos_sgic, name='mecanismos_sgic'),
 

@@ -1,16 +1,390 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Mecanismos SGIC{% endblock %}
-
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/mecanismos_sgic.css' %}">
+<link rel="stylesheet" href="{% static 'css/calidad_organizacion.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+{% endblock %}
 {% block content %}
+
 <div class="container-xl">
   <h1 class="py-4 hero-title">
-    Mecanismos SGIC
+    Mecanismos de aseguramiento interno de la calidad
   </h1>
 </div>
 
-<section style="background-color: #fff;">
+<section class="py-5" style="background-color: #fff;">
+    <div class="container pb-5">
+        <p class="text-justify pb-5">
+            Los <b>mecanismos de aseguramiento interno de la calidad</b> permiten poner en práctica el ciclo PHVA (Planificar, Hacer, Verificar y Actuar) en la institución y dan soporte al funcionamiento operativo del Sistema de Gestión Integral de la Calidad (SGIC). A través de ellos, se articulan de manera sistemática la planificación, ejecución, evaluación y mejora continua de los procesos institucionales.
+        </p>
+    
+        <div class="row g-4">
+        <div class="col-12 col-md-4 text-center">
+            <img src="{% static 'images/mecanismos_sgic.png' %}" class="img-fluid">
+        </div>
+
+        <div class="col-12 col-md-8">
+            <div class="table-responsive">
+                <div class="maic-outer">
+                    <div class="maic-title">Mecanismos de Aseguramiento Interno de la Calidad</div>
+                    <table class="maic-table w-100">
+                    <thead>
+                        <tr>
+                        <th class="col-name"></th>
+                        <th class="col-phase"><span class="phase-pill">Planificar</span></th>
+                        <th class="col-phase"><span class="phase-pill">Hacer</span></th>
+                        <th class="col-phase"><span class="phase-pill">Verificar</span></th>
+                        <th class="col-phase"><span class="phase-pill">Actuar</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class="col-name">Sistema de Gestión Estratégica Institucional</td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        </tr>
+                        <tr>
+                        <td class="col-name">Programas de contribución</td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"></td>
+                        </tr>
+                        <tr>
+                        <td class="col-name">Modelo Enfoque a Procesos</td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"></td>
+                        </tr>
+                        <tr>
+                        <td class="col-name">Auditoría del SGIC</td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"></td>
+                        </tr>
+                        <tr>
+                        <td class="col-name">Modelo de Gestión de Riesgos del SGIC</td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        </tr>
+                        <tr>
+                        <td class="col-name">Sistema Integrado de Información</td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"></td>
+                        </tr>
+                        <tr>
+                        <td class="col-name">SIRAP</td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        <td class="col-phase"><span class="mark-x">✕</span></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div> <!-- End Table Responsive -->
+        </div>
+    </div>
+
+
+    </div>
+</section>
+
+<!-- 
+<div class="container pb-5">
+    <div class="nivel">
+         <div class="nivel-titulo pb-5">Principios Transversales de la Política de Gestión Integral de la Calidad</div> --
+        <h3 class="py-5" style="color: var(--gris-link);">Mecanismos del SGIC</h3>
+        <div class="row g-4 pb-5">
+            <div class="col-12 col-md-3">
+                <div class="p-4 rounded-4 h-100 bg-morado">
+                    <p class="fw-bold mb-3 text-white">Sistema de Gestión Estratégica Inst. (SGEI)</p>
+                    <p class="text-white mb-0" style="font-size: .875rem; opacity: .9;">
+                      Permite planificar, coordinar y
+evaluar las acciones
+institucionales, de unidades
+académicas y administrativas,
+asegurando el cumplimiento de
+objetivos estratégicos y el
+alineamiento con la misión y
+visión de la organización.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="p-4 rounded-4 h-100 bg-morado">
+                    <p class="fw-bold mb-3 text-white">Programas de Contribución</p>
+                    <p class="text-white mb-0" style="font-size: .875rem; opacity: .9;">
+                      Planificación que realizan las
+unidades de administración
+central a partir de sus
+desempeños clave,
+reflejando de manera
+operativa el desarrollo del
+ciclo PHVA.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="p-4 rounded-4 h-100 bg-morado">
+                    <p class="fw-bold mb-3 text-white">Modelo Enfoque a Procesos</p>
+                    <p class="text-white mb-0" style="font-size: .875rem; opacity: .9;">
+                      Marco metodológico que concibe
+la institución como un conjunto
+de procesos interrelacionados,
+cuyo propósito es transformar
+insumos, requerimientos y
+expectativas de los grupos de
+interés en resultados verificables
+y de valor.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="p-4 rounded-4 h-100 bg-morado">
+                    <p class="fw-bold mb-3 text-white">Auditorías del SGIC</p>
+                    <p class="text-white mb-0" style="font-size: .875rem; opacity: .9;">
+                      Evaluaciones sistemáticas,
+independientes y
+documentadas que permiten
+verificar el cumplimiento de
+normas, procesos y objetivos
+institucionales, orientadas a
+detectar desviaciones, validar
+evidencias y fortalecer los
+mecanismos de control interno.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 pb-5">
+            <div class="col-12 col-md-3 offset-md-1">
+                <div class="p-4 rounded-4 h-100 bg-morado">
+                    <p class="fw-bold mb-3 text-white">Modelo de Gestión de Riesgos del SGIC</p>
+                    <p class="text-white mb-0" style="font-size: .875rem; opacity: .9;">
+                      Permite identificar,
+evaluar y tratar los riesgos
+del SGIC, que puedan
+afectar el cumplimiento
+de los objetivos
+institucionales.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="p-4 rounded-4 h-100 bg-morado">
+                    <p class="fw-bold mb-3 text-white">Sistema Integrado de
+Información</p>
+                    <p class="text-white mb-0" style="font-size: .875rem; opacity: .9;">
+                      Centraliza y organiza datos
+institucionales, facilitando
+la toma de decisiones
+basada en evidencia y el
+seguimiento de indicadores
+de desempeño.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="p-4 rounded-4 h-100 bg-morado">
+                    <p class="fw-bold mb-3 text-white">Sist. de Información
+Relevante para la Autorreg.
+de Prog. Acad. (SIRAP):</p>
+                    <p class="text-white mb-0" style="font-size: .875rem; opacity: .9;">
+                      Herramienta que proporciona
+información estratégica sobre el
+desempeño de los programas
+académicos, apoyando la
+autorregulación, la mejora
+continua y la toma de decisiones
+basada en evidencia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+<!-- <section class="bg-light py-5">
+
+<div class="container">
+
+<h3 class="text-center mb-5">
+Mecanismos del SGIC
+</h3> -->
 <div class="container py-5">
+    <div class="nivel">
+        <!-- <div class="nivel-titulo pb-5">Principios Transversales de la Política de Gestión Integral de la Calidad</div> -->
+        <h3 class="py-5" style="color: var(--gris-link);">Mecanismos del SGIC</h3>
+<div class="row g-4">
+
+<div class="col-md-6 col-lg-3">
+
+<div class="sgic-card">
+
+<div class="sgic-icon">
+<i class="fa-solid fa-landmark"></i>
+</div>
+
+<h5></i> Sistema de Gestión Estratégica Institucional</h5>
+<p>
+Permite planificar, coordinar y evaluar las acciones institucionales, de unidades académicas y administrativas, asegurando el cumplimiento de objetivos estratégicos y el alineamiento con la misión y visión de la organización.
+</p>
+</div>
+</div>
+
+
+<div class="col-md-6 col-lg-3">
+
+<div class="sgic-card">
+
+<div class="sgic-icon">
+<i class="fa-solid fa-hand-holding-heart"></i>
+</div>
+<h5>Programas de Contribución Programas de Contribución</h5>
+<p>
+Planificación que realizan las unidades de administración central a partir de sus desempeños clave, reflejando de manera operativa el desarrollo del ciclo PHVA.
+</p>
+</div>
+
+</div>
+
+
+<div class="col-md-6 col-lg-3">
+
+<div class="sgic-card">
+<div class="sgic-icon">
+<i class="fa-solid fa-gears"></i>
+</div>
+<h5>Modelo Enfoque a Procesos</h5>
+
+<p>
+Marco metodológico que concibe la institución como un conjunto de procesos interrelacionados, cuyo propósito es transformar insumos, requerimientos y expectativas de los grupos de interés en resultados verificables y de valor.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6 col-lg-3">
+<div class="sgic-card">
+<div class="sgic-icon">
+<i class="fa-solid fa-clipboard-check"></i>
+</div>
+<h5>Auditorías del SGIC</h5>
+<p>
+Evaluaciones sistemáticas, independientes y documentadas que permiten verificar el cumplimiento de normas, procesos y objetivos institucionales, orientadas a detectar desviaciones, validar evidencias y fortalecer los mecanismos de control interno.
+</p>
+</div>
+</div>
+
+
+<div class="col-md-6 col-lg-3 offset-lg-1">
+<div class="sgic-card">
+<div class="sgic-icon">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<h5></i> Modelo de Gestión de Riesgos del SGIC</h5>
+<p>
+Permite identificar, evaluar y tratar los riesgos del SGIC, que puedan afectar el cumplimiento de los objetivos institucionales.
+</p>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3">
+<div class="sgic-card">
+<div class="sgic-icon">
+<i class="fa-solid fa-layer-group"></i> 
+</div>
+<h5>Sistema Integrado de Información</h5>
+<p>
+Centraliza y organiza datos institucionales, facilitando la toma de decisiones basada en evidencia y el seguimiento de indicadores de desempeño.
+</p>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3">
+<div class="sgic-card">
+<div class="sgic-icon">
+<i class="fa-solid fa-book-open-reader"></i>
+</div>
+<h5> Sist. de Información Relevante para la Autorreg. de Prog. Acad. (SIRAP):</h5>
+<p>
+Herramienta que proporciona información estratégica sobre el desempeño de los programas académicos, apoyando la autorregulación, la mejora continua y la toma de decisiones basada en evidencia.
+</p>
+</div>
+</div>
+
+
+
+</div>
+
+</div>
 </div>
 </section>
+
+
+<style>
+.sgic-card{
+
+background:white;
+padding:25px;
+border-radius:18px;
+height:100%;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
+
+transition:0.2s;
+
+}
+
+.sgic-card:hover{
+
+transform:translateY(-4px);
+
+}
+
+.sgic-icon{
+
+font-size:28px;
+margin-bottom:10px;
+color:#4B2BAA;
+
+}
+
+.sgic-card h5{
+
+color:#4B2BAA;
+font-weight:600;
+
+}
+
+.sgic-card p{
+
+font-size:14px;
+color:#6c757d;
+
+}
+</style>
 {% endblock %}

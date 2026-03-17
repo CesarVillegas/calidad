@@ -25,6 +25,12 @@ def calidad_definicion(request):
 def calidad_politica(request):
     return render(request, 'home/calidad_politica.html')
 
+def calidad_politica(request):
+    return render(request, 'home/calidad_politica.html')
+
+def calidad_gestion(request):
+    return render(request, 'home/calidad_gestion.html')
+
 def ciclo_phva(request):
     return render(request, 'home/ciclo_phva.html')
 

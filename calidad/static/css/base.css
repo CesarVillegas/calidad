@@ -145,3 +145,8 @@ body {
 .carousel-control-next, .carousel-control-prev {
   width: 2%;
 }
+
+
+.text-justify {
+  text-align: justify;
+}
