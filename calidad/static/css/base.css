@@ -12,6 +12,14 @@
   --borde:           #e4e4e4;
   --sombra-nav:      0 1px 8px rgba(0,0,0,0.08);
   --sombra-dropdown: 0 6px 24px rgba(0,0,0,0.10);
+  
+  --color-morado: #3e1da6;
+  --color-morado-icon: #3e1da6;
+  --color-fondo: #f0f0f0;
+  --color-card: #e8e8e8;
+
+  /* --color-morado: #3d2f9e; 
+  --color-morado-icon: #4a3ab5; */
 }
 
 body {
@@ -26,7 +34,8 @@ body {
     Enlaces de interés
 ══════════════════════════════════════ */
 .site-footer {
-    background: #3d1eb2;   /* morado institucional */
+    /* background: #3d1eb2;   morado institucional */
+    background: var(--color-morado);
     color: rgba(255, 255, 255, 0.88);
     padding: 2.8rem 0 2rem;
 }

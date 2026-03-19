@@ -1,9 +1,9 @@
-:root {
+/* :root {
     --color-morado: #3d2f9e;
     --color-morado-icon: #4a3ab5;
     --color-fondo: #f0f0f0;
     --color-card: #e8e8e8;
-}
+} */
 
 .descripcion {
     max-width: 560px;
@@ -122,7 +122,7 @@
 .lista-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:10px 40px;
+  gap:10px 60px;
   padding-left:18px;
 }
 

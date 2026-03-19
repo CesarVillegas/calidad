@@ -9,250 +9,212 @@
   </h1>
 </div>
 
-<!-- <section style="background-color: #fff;">
+<section style="background-color: #fff;">
 <div class="container py-5">
-</div>
-</section> -->
+<!-- Contenedor de actividades de formación -->
+<div class="d-flex flex-column gap-3">
 
-<!-- Estructura de Lista de Documentos con Bootstrap 5 -->
-<section class="container py-5">
+   <!-- Card 1 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+        Sistema de Gestión Integral de la Calidad
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Documento oficial que establece los principios de gestión de calidad institucional.
+      </p>
+    </div>
 
-<!-- <h3 class="mb-4 text-secondary">
-Documentos Institucionales
-</h3> -->
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
-<div class="list-group sgic-docs">
+  <!-- Card 2 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+        Política de Gestión Integral de la Calidad
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Define estructura, responsabilidades y procesos del SGIC.
+      </p>
+    </div>
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
+  <!-- Card 3 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+        Plan de Desarrollo Institucional 2024-2033
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
-<!-- Sistema de Gestión Integral de la Calidad -->
-<a href="#" class="list-group-item list-group-item-action">
+  <!-- Card 4 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+        Modelo Educativo Institucional
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Define estructura, responsabilidades y procesos del SGIC.
+      </p>
+    </div>
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
-<div class="d-flex w-100 justify-content-between">
-
-<div class="d-flex gap-3">
-
-<div class="doc-icon">
-📄
-</div>
-
-<div>
-
-<h5 class="mb-1">
-Sistema de Gestión Integral de la Calidad
-</h5>
-<p class="mb-1 text-muted">
-Documento oficial que establece los principios de gestión de calidad institucional.
-</p>
-<small class="text-muted">
-PDF • 2024
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
-
-<!-- Política de Gestión Integral de la Calidad -->
-<a href="#" class="list-group-item list-group-item-action">
-<div class="d-flex w-100 justify-content-between">
-<div class="d-flex gap-3">
-<div class="doc-icon">
-📄
-</div>
-<div>
-<h5 class="mb-1">
-Política de Gestión Integral de la Calidad
-</h5>
-<p class="mb-1 text-muted">
-Define estructura, responsabilidades y procesos del SGIC.
-</p>
-<small class="text-muted">
-PDF • 2023
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
-
-<!-- Plan de Desarrollo Institucional 2024-2033 -->
-<a href="#" class="list-group-item list-group-item-action">
-<div class="d-flex w-100 justify-content-between">
-<div class="d-flex gap-3">
-<div class="doc-icon">
-📄
-</div>
-<div>
-<h5 class="mb-1">
-Plan de Desarrollo Institucional 2024-2033
-</h5>
-<p class="mb-1 text-muted">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-</p>
-<small class="text-muted">
-PDF • 2023
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
-
-
-<!-- Modelo Educativo Institucional -->
-<a href="#" class="list-group-item list-group-item-action">
-<div class="d-flex w-100 justify-content-between">
-<div class="d-flex gap-3">
-<div class="doc-icon">
-📄
-</div>
-<div>
-<h5 class="mb-1">
-Modelo Educativo Institucional
-</h5>
-<p class="mb-1 text-muted">
-Define estructura, responsabilidades y procesos del SGIC.
-</p>
-<small class="text-muted">
-PDF • 2023
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
+  <!-- Card 5 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+        Plan de Fortalecimiento a 10 años
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Define estructura, responsabilidades y procesos del SGIC.
+      </p>
+    </div>
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
 
-<!-- Plan de Fortalecimiento a 10 años -->
-<a href="#" class="list-group-item list-group-item-action">
-<div class="d-flex w-100 justify-content-between">
-<div class="d-flex gap-3">
-<div class="doc-icon">
-📄
-</div>
-<div>
-<h5 class="mb-1">
-Plan de Fortalecimiento a 10 años
-</h5>
-<p class="mb-1 text-muted">
-Define estructura, responsabilidades y procesos del SGIC.
-</p>
-<small class="text-muted">
-PDF • 2023
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
+  <!-- Card 6 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+        Modelo de Vinculación con el Medio
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Define estructura, responsabilidades y procesos del SGIC.
+      </p>
+    </div>
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
-<!-- Modelo de Vinculación con el Medio -->
-<a href="#" class="list-group-item list-group-item-action">
-<div class="d-flex w-100 justify-content-between">
-<div class="d-flex gap-3">
-<div class="doc-icon">
-📄
-</div>
-<div>
-<h5 class="mb-1">
-Modelo de Vinculación con el Medio
-</h5>
-<p class="mb-1 text-muted">
-Define estructura, responsabilidades y procesos del SGIC.
-</p>
-<small class="text-muted">
-PDF • 2023
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
+  <!-- Card 7 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+       Reglamento de Postgrados y Postítulos
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Define estructura, responsabilidades y procesos del SGIC.
+      </p>
+    </div>
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
-
-<!-- Reglamento de Postgrados y Postítulos -->
-<a href="#" class="list-group-item list-group-item-action">
-<div class="d-flex w-100 justify-content-between">
-<div class="d-flex gap-3">
-<div class="doc-icon">
-📄
-</div>
-<div>
-<h5 class="mb-1">
-Reglamento de Postgrados y Postítulos
-</h5>
-<p class="mb-1 text-muted">
-Define estructura, responsabilidades y procesos del SGIC.
-</p>
-<small class="text-muted">
-PDF • 2023
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
-
-<!-- Reglamento de Investigación y Desarrollo -->
-<a href="#" class="list-group-item list-group-item-action">
-<div class="d-flex w-100 justify-content-between">
-<div class="d-flex gap-3">
-<div class="doc-icon">
-📄
-</div>
-<div>
-<h5 class="mb-1">
-Reglamento de Investigación y Desarrollo
-</h5>
-<p class="mb-1 text-muted">
-Define estructura, responsabilidades y procesos del SGIC.
-</p>
-<small class="text-muted">
-PDF • 2023
-</small>
-</div>
-</div>
-<span class="btn btn-outline-primary btn-sm align-self-center">
-Descargar
-</span>
-</div>
-</a>
-
-
+  <!-- Card 8 -->
+  <div class="act-card d-flex align-items-stretch border rounded-4 overflow-hidden formacion-card">
+    <div class="flex-grow-1 p-4 formacion-left">
+      <p class="fw-semibold mb-2 titulo">
+       Reglamento de Investigación y Desarrollo
+      </p>
+      <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+        Define estructura, responsabilidades y procesos del SGIC.
+      </p>
+    </div>
+    <div class="d-flex align-items-stretch formacion-right">
+      <span class="fw-semibold formacion-right-text w-100 h-100 d-flex align-items-stretch">
+        <a href="{{ archivo.url }}" download 
+          class="btn btn-outline-danger border-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-0">
+          <i class="fa-solid fa-file-pdf me-2"></i>Descargar
+        </a>
+      </span>
+    </div>
+  </div>
 
 </div>
-
+</div>
 </section>
 
+
+<style>
+.formacion-card {
+  /* border-color: #2a7a6e !important;  */
+  border-color: var(--gris-link) !important;
+  border-width: 1.5px !important;
+}
+
+.formacion-left {
+   width: 80%; 
+   /* border-right: 1.5px solid #2a7a6e; */
+   border-right: 1.5px solid var(--gris-link);
+}
+.formacion-left p.titulo {
+    color: var(--color-morado);
+    font-size: 0.9rem;
+}
+
+
+.formacion-right {
+  width: 20%; 
+  background-color: #f2f3f5;
+}
+
+.formacion-right .formacion-right-text {
+    font-size: 0.85rem;
+    color: var(--gris-link);
+    line-height: 1.4;
+}
+
+.btn-outline-danger {
+  border-radius: 0 8px 8px 0 !important;  /* top-left, top-right, bottom-right, bottom-left */
+  /* border-right: 1.5px solid var(--rojo); */
+  /* border-right: 1.5px solid var(--color-morado); */
+}
+</style>
+
 {% endblock %}
-
-
-
-
-Política de Gestión Integral de la Calidad
-
-Plan de Desarrollo Institucional 2024-2033
-
-Modelo Educativo Institucional
-
-Plan de Fortalecimiento a 10 años
-
-Modelo de Vinculación con el Medio
-
-Reglamento de Postgrados y Postítulos
-
-Reglamento de Investigación y Desarrollo

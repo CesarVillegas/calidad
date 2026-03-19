@@ -129,7 +129,7 @@
                 <div class="card-body p-2">
                   <h2 class="fw-light mb-1 counter" 
                       data-target="{{ ind.valor }}" 
-                      style="font-size: 3rem; color: #3333cc;">0</h2>
+                      style="font-size: 3rem; color: var(--color-morado);">0</h2>
                   <p class="small mb-0">{{ ind.nombre }}</p>
                   {% if ind.descripcion %}
                     <p class="text-muted mt-2" style="font-size: 0.75rem;">{{ ind.descripcion }}</p>
@@ -144,6 +144,81 @@
     </section>
 
 {% endif %}
+
+<section class="py-5" style="background-color: #fff;">
+  <div class="container pb-5">
+      <h3 class="pb-5" style="color: var(--gris-link);">¿En Qué Etapa Estamos en el Proceso de Acreditación CNA?</h3>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-4 d-none d-md-block ms-neg" style="text-align: right;">
+          <h3 style="color: var(--gris-link);">2024</h3>
+        </div>
+        <div class="col-12 col-md-4 d-none d-md-block text-center">
+          <h3 style="color: var(--gris-link);">2025</h3>
+        </div>
+        <div class="col-12 col-md-4 d-none d-md-block text-center">
+          <h3 style="color: var(--gris-link);">2026</h3>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-12 d-none d-md-block text-center" style="margin-left: -4%;">
+          <div class="chevron-animado">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none">
+              <path d="M4 4L14 13L24 4"  stroke="#E8692A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11L14 20L24 11" stroke="#E8692A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- 3 tarjetas de indicadores -->
+      <div class="row g-4">
+          <!-- Imagen única para mobile -->
+          <div class="col-12 d-block d-md-none">
+            <img src="{% static 'images/acreditacion/acreditacion-mobile.png' %}" 
+                class="img-fluid rounded rounded-3" 
+                alt="Proceso de Acreditación">
+          </div>
+
+          <!-- 3 columnas solo para desktop -->
+          <div class="col-md-4 d-none d-md-block ms-neg">
+            <img src="{% static 'images/acreditacion/acreditacion-1a.png' %}" 
+                class="img-fluid rounded rounded-3" 
+                alt="Proceso de Acreditación">
+          </div>
+          <div class="col-md-4 d-none d-md-block">
+            <img src="{% static 'images/acreditacion/acreditacion-2.png' %}" 
+                class="img-fluid rounded rounded-3" 
+                alt="Proceso de Acreditación">
+          </div>
+          <div class="col-md-4 d-none d-md-block">
+            <img src="{% static 'images/acreditacion/acreditacion-3.png' %}" 
+                class="img-fluid rounded rounded-3" 
+                alt="Proceso de Acreditación">
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<style>
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0);  opacity: 1; }
+  50%       { transform: translateY(6px); opacity: 0.75; }
+}
+
+.chevron-animado {
+  animation: bounce-down 0.9s ease-in-out infinite;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+  .ms-neg {
+    margin-left: -50px;
+  }
+}
+</style>
+
 
 
 {% endblock %}
