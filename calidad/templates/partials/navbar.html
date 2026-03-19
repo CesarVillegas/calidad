@@ -58,6 +58,12 @@
             </button>
             <ul class="submenu">
               <li>
+                <a href="{% url 'home:calidad_gestion' %}" 
+                  class="submenu-link {% if resolver == 'home:calidad_gestion' %}active{% endif %}">
+                  Acerca del Sistema
+                </a>
+              </li>
+              <li>
                 <a href="{% url 'home:ciclo_phva' %}" 
                   class="submenu-link {% if resolver == 'home:ciclo_phva' %}active{% endif %}">
                   Ciclo PHVA
