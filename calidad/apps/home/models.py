@@ -18,20 +18,14 @@ class Banner(models.Model):
     # Enlace (opcional — el banner puede ser clickeable)
     url         = models.URLField(blank=True)
     url_texto   = models.CharField(max_length=100, blank=True)  # texto del botón CTA
-    url_externa = models.BooleanField(default=False)            # abre en _blank
+    url_externa = models.BooleanField(default=True)            # abre en _blank
 
     # Control de publicación
-    activo      = models.BooleanField(default=True)
+    publicado   = models.BooleanField(default=True)
     orden       = models.PositiveSmallIntegerField(default=0)   # para ordenar el carrusel
-    fecha_inicio = models.DateField(null=True, blank=True)      # publicación programada
-    fecha_fin    = models.DateField(null=True, blank=True)
-
-    # Auditoría
-    creado_en      = models.DateTimeField(auto_now_add=True)
-    actualizado_en = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['orden', '-creado_en']
+        ordering = ['orden', 'publicado']
         verbose_name = 'Banner'
         verbose_name_plural = 'Banners'
 
@@ -41,15 +35,52 @@ class Banner(models.Model):
 
 
 class Indicador(models.Model):
-    nombre = models.CharField(max_length=200)
-    valor = models.CharField(max_length=100)
-    descripcion = models.TextField(blank=True)
-    activo      = models.BooleanField(default=True)
-    orden       = models.PositiveSmallIntegerField(default=0)   # para ordenar la visualización
+    titulo = models.CharField(
+        max_length=150,
+        help_text="Nombre del indicador (ej: Retención de primer año)"
+    )
 
-    class Meta:
-        verbose_name = 'Indicador'
-        verbose_name_plural = 'Indicadores'
+    valor = models.CharField(
+        max_length=150,
+        help_text="Valor a mostrar (ej: 84,6 o 2do). No incluir el símbolo % si usas el sufijo."
+    )
+
+    sufijo = models.CharField(
+        max_length=10,
+        blank=True,
+        help_text="Símbolo opcional (ej: %, pts). Déjalo vacío si no aplica."
+    )
+
+    descripcion = models.TextField(
+        blank=True,
+        max_length=255,
+        help_text="Descripción breve del indicador"
+    )
+
+    subtitulo = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text="Texto adicional (ej: Cohorte 2024)"
+    )
+
+    icono = models.ImageField(
+        upload_to='indicadores/',
+        help_text="Ícono representativo (SVG o PNG recomendado)"
+    )
+
+    orden = models.PositiveIntegerField(
+        default=1,
+        help_text="Define el orden de aparición (menor = primero)"
+    )
+
+    publicado = models.BooleanField(
+        default=True,
+        help_text="Indica si el indicador se muestra en el sitio"
+    )
 
     def __str__(self):
-        return self.nombre
+        return f"{self.titulo} - {self.valor}{self.sufijo}"
+
+    class Meta:
+        ordering = ['orden']

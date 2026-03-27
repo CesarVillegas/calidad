@@ -3,8 +3,8 @@
 {% block title %}Calidad Userena{% endblock %}
 
 {% block content %}
-<div class="container-xl">
-  <h1 class="py-4 hero-title">
+<div class="container-xl py-5">
+  <h1 class="bt-4 hero-title">
     Desarrollo Estratégico<br>y Calidad USerena
   </h1>
   
@@ -71,83 +71,63 @@
 </div>
 
 
-
-
-  <!-- Banner -->
-  <!-- <section class="banner-section">
-    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
-      </div>
-
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <img src="{% static 'images/banner-1.jpg' %}" class="d-block w-100 banner-img" style="border-radius: 25px;" alt="Banner 1">
-          <div class="carousel-caption d-none d-md-block">
-            <h2>Teatro Experimental</h2>
-            <p>Universidad de La Serena</p>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <img src="{% static 'images/banner-2.jpg' %}" class="d-block w-100 banner-img" style="border-radius: 25px;"  alt="Banner 2">
-        </div>
-
-        <div class="carousel-item">
-          <img src="{% static 'images/banner-3.jpg' %}" class="d-block w-100 banner-img" style="border-radius: 25px;" alt="Banner 3">
-        </div>
-      </div>
-
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-
-
-      <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-        <span class="visually-hidden">Siguiente</span>
-      </button>
-
-    </div>
-  </section> -->
-
 {% if indicadores %}
-
-    <section style="background-color: #fff;">
-    <div class="container py-5">
+<section style="background-color: #fff;">
+    <div class="container-xl py-5">
       <h2 class="py-5 text-center" style="color: var(--gris-link);">Indicadores de Calidad Institucional</h2>
-        <div class="row g-3">
-          {% for ind in indicadores %}
-            <div class="col-6 col-md-4 col-lg-3">
-              <div class="card border-0 text-center p-4 h-100">
-                <div class="card-body p-2">
-                  <h2 class="fw-light mb-1 counter" 
-                      data-target="{{ ind.valor }}" 
-                      style="font-size: 3rem; color: var(--color-morado);">0</h2>
-                  <p class="small mb-0">{{ ind.nombre }}</p>
-                  {% if ind.descripcion %}
-                    <p class="text-muted mt-2" style="font-size: 0.75rem;">{{ ind.descripcion }}</p>
-                  {% endif %}
+        <div class="row text-center justify-content-center">
+            {% for indicador in indicadores %}
+              <div class="col-6 col-md-4 col-lg-4 mb-4">
+                <div class="indicador-card p-3 h-100 text-center indicador-hover">
+                    {% if indicador.icono %}
+                        <img src="{{ indicador.icono.url }}" 
+                            alt="{{ indicador.titulo }}" 
+                            class="indicador-icon mb-3">
+                    {% endif %}
+
+                    <h2 class="indicador-valor mb-1">
+                        <span class="counter" data-target="{{ indicador.valor }}">0</span>
+                        <span class="sufijo">
+                            {% if indicador.sufijo %}{{ indicador.sufijo }}{% endif %}
+                        </span>
+                    </h2>
+
+                    <p class="indicador-descripcion mb-1">
+                        {{ indicador.titulo }}
+                    </p>
+
+                    {% if indicador.subtitulo %}
+                    <small class="indicador-subtitulo d-block">
+                        {{ indicador.subtitulo }}
+                    </small>
+                    {% endif %}
+
+                    <!-- Tooltip -->
+                    <div class="indicador-tooltip">
+                        {{ indicador.descripcion }}
+                    </div>
                 </div>
               </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+
+             
+
         </div>
-
-        <!-- <p>Referencia: <a href="https://calidad.utem.cl/indicadores-institucionales/" target="_blank" rel="noopener noreferrer">Indicadores Institucionales UTEM</a></p> -->
-    </section>
-
+        <div class="row text-center justify-content-center">
+          <div class="col-6 col-md-4 col-lg-4 mb-4">
+            <a href="#" class="btn btn-outline-institucional btn-sm">
+                Ver más indicadores
+            </a>
+          </div>
+        </div>
+    </div>
+</section>
 {% endif %}
+
 
 <section class="py-5" style="background-color: #fff;">
   <div class="container pb-5">
-      <h3 class="pb-5" style="color: var(--gris-link);">¿En Qué Etapa Estamos en el Proceso de Acreditación CNA?</h3>
+      <h3 class="pb-5 text-center" style="color: var(--gris-link);">¿En Qué Etapa Estamos en el Proceso de Acreditación CNA?</h3>
 
       <div class="row g-4">
         <div class="col-12 col-md-4 d-none d-md-block ms-neg" style="text-align: right;">
@@ -217,6 +197,113 @@
     margin-left: -50px;
   }
 }
+
+
+/* Diseño indicadores */
+
+.indicador-card {
+    background: #fff;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+    cursor: default;
+}
+
+
+.indicador-icon {
+    width: 40%;
+    height: 40%;
+    object-fit: contain;
+}
+
+.indicador-valor {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #1a2a44;
+}
+
+.indicador-descripcion {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.indicador-subtitulo {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+
+
+.indicador-hover {
+    position: relative;
+}
+
+/* Tooltip oculto */
+.indicador-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    
+    background: #1f2d3d;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    
+    font-size: 0.8rem;
+    width: max-content;
+    max-width: 220px;
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    z-index: 10;
+}
+
+/* Flechita */
+.indicador-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    border-width: 6px;
+    border-style: solid;
+    border-color: #1f2d3d transparent transparent transparent;
+}
+
+/* Hover */
+.indicador-hover:hover .indicador-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* 
+
+.btn {
+    border-radius: 20px;
+    font-size: 0.8rem;
+    padding: 4px 14px;
+} */
+
+
+
+.btn-outline-institucional {
+    background-color: var(--gris-link);
+    color: #fff;
+    padding: 8px 40px;
+    border-radius: 20px;
+}
+
+.btn-outline-institucional:hover {
+    color: var(--gris-link);
+    border-color: var(--gris-link);
+    padding: 8px 40px;
+}
+
 </style>
 
 
@@ -225,31 +312,41 @@
 {% block extra_js %}
 
 <script>
-// Al final del template o en tu JS
 document.addEventListener('DOMContentLoaded', () => {
   const counters = document.querySelectorAll('.counter');
 
   counters.forEach(counter => {
-    const target = parseInt(counter.dataset.target);
-    
-    // Si el valor no es numérico, mostrarlo directo (ej: "85%", "N/A")
+    let rawValue = counter.dataset.target.replace(',', '.'); // soporta 84,5
+    const target = parseFloat(rawValue);
+
+    // Si no es número → mostrar directo
     if (isNaN(target)) {
       counter.textContent = counter.dataset.target;
       return;
     }
 
-    const duration = 1500; // milisegundos
-    const step = Math.ceil(target / (duration / 16)); // ~60fps
+    // Detectar cantidad de decimales
+    const decimals = (rawValue.split('.')[1] || '').length;
+
+    const duration = 1500;
+    const steps = duration / 16;
+    const increment = target / steps;
 
     let current = 0;
+
     const timer = setInterval(() => {
-      current += step;
+      current += increment;
+
       if (current >= target) {
-        counter.textContent = target.toLocaleString('es-CL');
+        current = target;
         clearInterval(timer);
-      } else {
-        counter.textContent = current.toLocaleString('es-CL');
       }
+
+      counter.textContent = current.toLocaleString('es-CL', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+
     }, 16);
   });
 });

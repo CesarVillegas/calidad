@@ -3,8 +3,8 @@ from .models import Banner, Indicador
 
 
 def index(request):
-    banners = Banner.objects.filter(activo=True).order_by('orden')
-    indicadores = Indicador.objects.filter(activo=True).order_by('orden')
+    banners = Banner.objects.filter(publicado=True).order_by('orden')
+    indicadores = Indicador.objects.filter(publicado=True).order_by('orden')
     context = {
         'banners': banners,
         'indicadores': indicadores,
