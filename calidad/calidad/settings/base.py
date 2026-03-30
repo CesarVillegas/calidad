@@ -27,9 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') == 'True'
+DEBUG = False  # se sobreescribe
 ALLOWED_HOSTS = []
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'calidad.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
+# Base de datos (se puede sobrescribir)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -122,20 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 
-# from pathlib import Path
 
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-# STATIC_URL = '/static/'
-
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static',
-# ]
+# Static / Media
+STATIC_URL = '/static/'             # 👉 Es la URL pública para acceder a archivos estáticos. Se usa en dev y prod. Nunca cambia normalmente
+MEDIA_URL = '/media/'               # 👉 URL pública para archivos subidos por usuarios. Se usa en dev y prod. Nunca cambia normalmente
 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']   # ← agregar esto
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# STATICFILES_DIRS le dice a Django dónde buscar archivos estáticos adicionales fuera de las apps, y 
-# STATIC_ROOT es donde collectstatic los reúne todos al desplegar en producción.
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
