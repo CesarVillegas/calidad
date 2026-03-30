@@ -1,7 +1,7 @@
 from .base import *
 import os
 
-DEBUG = Falses
+DEBUG = False
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(',')
 
 # DATABASES = {
