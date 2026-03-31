@@ -10,3 +10,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Agrega esto si quieres servir media en desarrollo, aunque ya viene de base, esto lo deja explícito y claro
 MEDIA_URL = '/media/'
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
