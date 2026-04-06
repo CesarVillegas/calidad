@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Indicadores{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/indicadores.css' %}">
+{% endblock %}
+{% block content %}
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">-->
+
+<div class="container-xl">
+  <h1 class="py-4 hero-title">
+    Indicadores de Calidad USerena
+  </h1>
+</div>
+
+
+<section style="background-color: #fff;">
+
+    {% for categoria in categorias %}
+    <div class="container-xl pb-5">
+        <h2 class="py-5 text-center" style="color: var(--gris-link);">{{ categoria.nombre }}</h2>
+        <div class="row text-center justify-content-center">
+          {% for indicador in categoria.indicadores.all %}
+            <div class="col-6 col-md-3 col-lg-3 mb-4">
+              <div class="indicador-card p-3 h-100 text-center indicador-hover">
+                  {% if indicador.icono %}
+                      <img src="{{ indicador.icono.url }}" 
+                          alt="{{ indicador.titulo }}" 
+                          class="indicador-icon mb-3">
+                  {% endif %}
+
+                  <h2 class="indicador-valor mb-1">
+                      <span class="counter" data-target="{{ indicador.valor }}">0</span>
+                      <span class="sufijo">
+                          {% if indicador.sufijo %}{{ indicador.sufijo }}{% endif %}
+                      </span>
+                  </h2>
+
+                  <p class="indicador-descripcion mb-1">
+                      {{ indicador.titulo }}
+                  </p>
+
+                  {% if indicador.subtitulo %}
+                  <small class="indicador-subtitulo d-block">
+                      {{ indicador.subtitulo }}
+                  </small>
+                  {% endif %}
+
+                  <!-- Tooltip -->
+                  <div class="indicador-tooltip">
+                      {{ indicador.descripcion }}
+                  </div>
+              </div>
+            </div>
+          {% endfor %}
+
+            
+
+      </div>
+    </div>
+    {% endfor %}
+</section>
+
+
+
+{% endblock %}
+{% block extra_js %}
+<script src="{% static 'js/contador.js' %}"></script>
+{% endblock %}

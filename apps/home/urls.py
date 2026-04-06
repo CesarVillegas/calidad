@@ -12,7 +12,7 @@ urlpatterns = [
     path('calidad/gestion/', views.calidad_gestion, name='calidad_gestion'),
     path('calidad/ciclo-phva/', views.ciclo_phva, name='ciclo_phva'),
     path('calidad/mecanismos-sgic/', views.mecanismos_sgic, name='mecanismos_sgic'),
-
+    path('indicadores/', views.indicadores, name='indicadores'),
     path('formacion/', views.formacion, name='formacion'),
     path('documentos/', views.documentos, name='documentos'),
     path('multimedia/', views.multimedia, name='multimedia'),

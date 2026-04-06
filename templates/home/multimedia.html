@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Multimedia{% endblock %}
-
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/multimedia.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container-xl">
   <h1 class="py-4 hero-title">
@@ -10,7 +12,99 @@
 </div>
 
 <section style="background-color: #fff;">
+
 <div class="container py-5">
+    <div class="row g-4">
+
+        <!-- Card -->
+        <div class="col-md-4">
+          <a href="https://youtu.be/x95kF56Aw2Q" target="_blank" class="text-decoration-none">
+              
+              <div class="video-card">
+                  <img src="https://img.youtube.com/vi/x95kF56Aw2Q/hqdefault.jpg" class="img-fluid">
+
+                  <div class="overlay">
+                      <span class="categoria">ACREDITACIÓN</span>
+                      <h6>Mensaje de Rectora Luperfina Rojas por proceso de Acreditación Institucional</h6>
+                  </div>
+
+                  <div class="duracion">01:19</div>
+              </div>
+
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="https://www.youtube.com/watch?v=5UmAOVmrHrM" target="_blank" class="text-decoration-none">
+              
+              <div class="video-card">
+                  <img src="https://img.youtube.com/vi/5UmAOVmrHrM/hqdefault.jpg" class="img-fluid">
+
+                  <div class="overlay">
+                      <span class="categoria">ACREDITACIÓN</span>
+                      <h6>Académic@s USerena - Proceso de Acreditación Institucional</h6>
+                  </div>
+
+                  <div class="duracion">01:40</div>
+              </div>
+
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="https://www.youtube.com/watch?v=UK5g4vgzkbk" target="_blank" class="text-decoration-none">
+              
+              <div class="video-card">
+                  <img src="https://img.youtube.com/vi/UK5g4vgzkbk/hqdefault.jpg" class="img-fluid">
+
+                  <div class="overlay">
+                      <span class="categoria">ACREDITACIÓN</span>
+                      <h6>Misión y Visión Institucional</h6>
+                  </div>
+
+                  <div class="duracion">00:43</div>
+              </div>
+
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="https://www.youtube.com/watch?v=4vxkOZLfrd0" target="_blank" class="text-decoration-none">
+              
+              <div class="video-card">
+                  <img src="https://img.youtube.com/vi/4vxkOZLfrd0/hqdefault.jpg" class="img-fluid">
+
+                  <div class="overlay">
+                      <span class="categoria">ACREDITACIÓN</span>
+                      <h6>¿Qué es la acreditación institucional?</h6>
+                  </div>
+
+                  <div class="duracion">00:31</div>
+              </div>
+
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="https://www.youtube.com/watch?v=_7q9a3PUrFY" target="_blank" class="text-decoration-none">
+              
+              <div class="video-card">
+                  <img src="https://img.youtube.com/vi/_7q9a3PUrFY/hqdefault.jpg" class="img-fluid">
+
+                  <div class="overlay">
+                      <span class="categoria">ACREDITACIÓN</span>
+                      <h6>¿Qué es la autoevaluación interna del proceso de acreditación institucional?</h6>
+                  </div>
+
+                  <div class="duracion">00:28</div>
+              </div>
+
+          </a>
+        </div>
+
+
+    </div>
 </div>
+
 </section>
 {% endblock %}

@@ -1,5 +1,9 @@
 from django.db import models
+from django.db.models import Q
+from django.core.exceptions import ValidationError
 from .validators import validar_extension_imagen, validar_resolucion_banner
+
+
 
 # Create your models here.
 class Banner(models.Model):
@@ -34,53 +38,87 @@ class Banner(models.Model):
 
 
 
+
+class CategoriaIndicador(models.Model):
+    nombre = models.CharField(max_length=150,help_text="Nombre de la categoría (ej: Docencia, Investigación)")
+    orden = models.PositiveIntegerField(default=1,help_text="Orden de visualización de la categoría")
+    publicado = models.BooleanField(default=True,help_text="Indica si la categoría se muestra")
+
+    def __str__(self):
+        return self.nombre
+
+    class Meta:
+        ordering = ['orden', 'id']
+
+
+
 class Indicador(models.Model):
-    titulo = models.CharField(
-        max_length=150,
-        help_text="Nombre del indicador (ej: Retención de primer año)"
+    categoria = models.ForeignKey(
+        CategoriaIndicador,
+        on_delete=models.CASCADE,
+        related_name='indicadores'
     )
 
-    valor = models.CharField(
-        max_length=150,
-        help_text="Valor a mostrar (ej: 84,6 o 2do). No incluir el símbolo % si usas el sufijo."
+    titulo = models.CharField(max_length=150)
+    valor = models.CharField(max_length=150)
+    sufijo = models.CharField(max_length=10, blank=True)
+    descripcion = models.TextField(blank=True, max_length=255)
+    subtitulo = models.CharField(max_length=255,blank=True,null=True)
+    icono = models.ImageField(upload_to='indicadores/estatico/')            # Imagen base (SIEMPRE existe)
+
+    # GIF opcional (solo para destacados)
+    icono_gif = models.ImageField(
+        upload_to='indicadores/gif/',
+        null=True,
+        blank=True
     )
 
-    sufijo = models.CharField(
-        max_length=10,
-        blank=True,
-        help_text="Símbolo opcional (ej: %, pts). Déjalo vacío si no aplica."
-    )
-
-    descripcion = models.TextField(
-        blank=True,
-        max_length=255,
-        help_text="Descripción breve del indicador"
-    )
-
-    subtitulo = models.CharField(
-        max_length=255,
+    orden = models.PositiveIntegerField(default=1)                                  # Orden dentro de la categoría
+    publicado = models.BooleanField(default=True)
+    destacado = models.BooleanField(default=False,help_text="Mostrar en el home")   # Destacados en home
+    # Orden en home (NO único, puede repetirse)
+    orden_destacado = models.PositiveIntegerField(
         blank=True,
         null=True,
-        help_text="Texto adicional (ej: Cohorte 2024)"
+        help_text="Orden en el home"
     )
 
-    icono = models.ImageField(
-        upload_to='indicadores/',
-        help_text="Ícono representativo (SVG o PNG recomendado)"
-    )
+    # clean() es un hook de validación del modelo.
+    # Se ejecuta cuando se llama full_clean() (por ejemplo en ModelForms o Django Admin).
+    # NO se ejecuta automáticamente al hacer save().
+    def clean(self):
+        errors = {}
 
-    orden = models.PositiveIntegerField(
-        default=1,
-        help_text="Define el orden de aparición (menor = primero)"
-    )
+        # 🔹 Regla 1: orden obligatorio si es destacado
+        if self.destacado and self.orden_destacado is None:
+            errors['orden_destacado'] = 'Debe definir un orden si el indicador es destacado.'
 
-    publicado = models.BooleanField(
-        default=True,
-        help_text="Indica si el indicador se muestra en el sitio"
-    )
+        # 🔹 Regla 2: gif obligatorio si es destacado
+        if self.destacado and not self.icono_gif:
+            errors['icono_gif'] = 'Debe subir un GIF si el indicador es destacado.'
+
+        # 🔹 Limpieza lógica
+        if not self.destacado:
+            self.orden_destacado = None
+
+        if errors:
+            raise ValidationError(errors)
 
     def __str__(self):
         return f"{self.titulo} - {self.valor}{self.sufijo}"
 
+    # 🔹 Helper para vistas
+    def get_icono_home(self):
+        if self.destacado and self.icono_gif:
+            return self.icono_gif.url
+        return self.icono.url
+
     class Meta:
-        ordering = ['orden']
+        ordering = ['orden', 'id']
+        constraints = [
+            # Solo regla realmente necesaria
+            models.CheckConstraint(
+                check=Q(destacado=False) | Q(icono_gif__isnull=False),
+                name='gif_required_if_destacado'
+            ),
+        ]

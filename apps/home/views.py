@@ -1,16 +1,29 @@
 from django.shortcuts import render
-from .models import Banner, Indicador
+from django.db.models import Prefetch, Count
+from django.db import models
+from .models import Banner, CategoriaIndicador, Indicador
+
+
 
 
 def index(request):
     banners = Banner.objects.filter(publicado=True).order_by('orden')
-    indicadores = Indicador.objects.filter(publicado=True).order_by('orden')
-    context = {
+    indicadores_destacados = (
+        Indicador.objects
+        .filter(
+            publicado=True,
+            destacado=True,
+            categoria__publicado=True
+        )
+        .order_by('orden_destacado', 'id')
+    )
+
+    contexto = {
         'banners': banners,
-        'indicadores': indicadores,
+        'indicadores_destacados': indicadores_destacados,
     }
     
-    return render(request, 'home/index.html', context)
+    return render(request, 'home/index.html', contexto)
 
 
 def somos(request):
@@ -42,6 +55,48 @@ def formacion(request):
 
 def documentos(request):
     return render(request, 'home/documentos.html')
+
+
+def indicadores(request):
+    categorias = (
+        CategoriaIndicador.objects
+        .filter(publicado=True)
+        .prefetch_related(
+            Prefetch(
+                'indicadores',
+                queryset=Indicador.objects
+                    .filter(publicado=True)
+                    .order_by('orden', 'id')
+            )
+        )
+        .order_by('orden', 'id')
+    )
+
+
+
+    categorias = (
+        CategoriaIndicador.objects
+        .filter(publicado=True)
+        .annotate(
+            total_indicadores=Count(
+                'indicadores',
+                filter=models.Q(indicadores__publicado=True)
+            )
+        )
+        .filter(total_indicadores__gt=0) 
+        .prefetch_related(
+            Prefetch(
+                'indicadores',
+                queryset=Indicador.objects.filter(publicado=True).order_by('orden', 'id')
+            )
+        )
+        .order_by('orden', 'id')
+    )
+    
+    contexto = {
+        'categorias': categorias
+    }
+    return render(request, 'home/indicadores.html', contexto)
 
 def multimedia(request):
     return render(request, 'home/multimedia.html')

@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Calidad Userena{% endblock %}
-
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/indicadores.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container-xl py-5">
   <h1 class="bt-4 hero-title">
@@ -71,16 +73,16 @@
 </div>
 
 
-{% if indicadores %}
+{% if indicadores_destacados %}
 <section style="background-color: #fff;">
     <div class="container-xl py-5">
       <h2 class="py-5 text-center" style="color: var(--gris-link);">Indicadores de Calidad Institucional</h2>
         <div class="row text-center justify-content-center">
-            {% for indicador in indicadores %}
+            {% for indicador in indicadores_destacados %}
               <div class="col-6 col-md-4 col-lg-4 mb-4">
                 <div class="indicador-card p-3 h-100 text-center indicador-hover">
                     {% if indicador.icono %}
-                        <img src="{{ indicador.icono.url }}" 
+                        <img src="{{ indicador.icono_gif.url }}" 
                             alt="{{ indicador.titulo }}" 
                             class="indicador-icon mb-3">
                     {% endif %}
@@ -115,7 +117,7 @@
         </div>
         <div class="row text-center justify-content-center">
           <div class="col-6 col-md-4 col-lg-4 mb-4">
-            <a href="#" class="btn btn-outline-institucional btn-sm">
+            <a href="{% url 'home:indicadores' %}" class="btn btn-outline-institucional btn-sm">
                 Ver más indicadores
             </a>
           </div>
@@ -199,110 +201,7 @@
 }
 
 
-/* Diseño indicadores */
 
-.indicador-card {
-    background: #fff;
-    border-radius: 12px;
-    transition: transform 0.2s ease;
-    cursor: default;
-}
-
-
-.indicador-icon {
-    width: 40%;
-    height: 40%;
-    object-fit: contain;
-}
-
-.indicador-valor {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #1a2a44;
-}
-
-.indicador-descripcion {
-    font-size: 0.95rem;
-    color: #333;
-}
-
-.indicador-subtitulo {
-    font-size: 0.8rem;
-    color: #777;
-}
-
-
-
-.indicador-hover {
-    position: relative;
-}
-
-/* Tooltip oculto */
-.indicador-tooltip {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    
-    background: #1f2d3d;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 8px;
-    
-    font-size: 0.8rem;
-    width: max-content;
-    max-width: 220px;
-    text-align: center;
-
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.25s ease;
-    z-index: 10;
-}
-
-/* Flechita */
-.indicador-tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    border-width: 6px;
-    border-style: solid;
-    border-color: #1f2d3d transparent transparent transparent;
-}
-
-/* Hover */
-.indicador-hover:hover .indicador-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-
-/* 
-
-.btn {
-    border-radius: 20px;
-    font-size: 0.8rem;
-    padding: 4px 14px;
-} */
-
-
-
-.btn-outline-institucional {
-    background-color: var(--gris-link);
-    color: #fff;
-    padding: 8px 40px;
-    border-radius: 20px;
-}
-
-.btn-outline-institucional:hover {
-    color: var(--gris-link);
-    border-color: var(--gris-link);
-    padding: 8px 40px;
-}
 
 </style>
 
