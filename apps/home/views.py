@@ -4,6 +4,8 @@ from django.db import models
 from .models import Banner, CategoriaIndicador, Indicador
 
 
+def sitio_construccion(request):
+    return render(request, 'home/construccion.html')
 
 
 def index(request):
