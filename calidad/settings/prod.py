@@ -2,28 +2,26 @@ from .base import *
 import os
 from pathlib import Path
 
-
 DEBUG = False
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(',')
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  # o postgresql
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST'),
-#         'PORT': os.getenv('DB_PORT'),
-#     }
-# }
 
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/var/www/userena.cl_calidad/db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT', '3306'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
+        'CONN_MAX_AGE': 60,
     }
 }
+
 
 # STATIC_ROOT Es donde Django reúne todos los static con collectstatic al desplegar en producción. ❌ No se usa en desarrollo
 STATIC_ROOT = '/var/www/userena.cl_calidad/static'
@@ -31,14 +29,10 @@ STATIC_ROOT = '/var/www/userena.cl_calidad/static'
 # Media 👉 Carpeta real donde se guardan archivos subidos
 MEDIA_ROOT = '/var/www/userena.cl_calidad/media'
 
-
-
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
+# Esto no es necesario en producción si usas collectstatic, pero lo dejo comentado para que quede claro que no se usa en producción, solo en desarrollo
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 
 
 # Seguridad
