@@ -1,5 +1,7 @@
 from .base import *
 import os
+from pathlib import Path
+
 
 DEBUG = False
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(',')
@@ -28,6 +30,16 @@ STATIC_ROOT = '/var/www/userena.cl_calidad/static'
 
 # Media 👉 Carpeta real donde se guardan archivos subidos
 MEDIA_ROOT = '/var/www/userena.cl_calidad/media'
+
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+
 
 # Seguridad
 CSRF_COOKIE_SECURE = True
