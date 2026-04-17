@@ -23,9 +23,20 @@
 </head>
 <body>
 
+
+<nav class="site-nav container-xl">
+  <div class="nav-inner">
+
+    <a href="/" class="nav-logo">
+      <img src="{% static 'images/logos/logo-userena.png' %}" alt="Universidad de La Serena" class="nav-logo-img">
+    </a>
+
+  </div>
+</nav>
+
+
 {% block content %}{% endblock %}
 
-{% include "partials/enlaces.html" %}
 {% include "partials/footer.html" %}
 
 
