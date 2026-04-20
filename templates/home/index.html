@@ -30,10 +30,18 @@
         {% for banner in banners %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
 
-          <img src="{{ banner.imagen.url }}"
-              class="d-block w-100 banner-img"
-              style="border-radius: 25px;"
-              alt="{{ banner.imagen_alt|default:banner.titulo }}">
+          <picture>
+            {% if banner.imagen_mobile %}
+              <source media="(max-width: 768px)" srcset="{{ banner.imagen_mobile.url }}">
+            {% endif %}
+
+            <img src="{{ banner.imagen.url }}"
+                class="d-block w-100 banner-img"
+                style="border-radius: 25px;"
+                alt="{{ banner.imagen_alt|default:banner.titulo }}"
+                loading="lazy"
+                decoding="async">
+          </picture>
 
           {% if banner.titulo or banner.subtitulo %}
           <div class="carousel-caption d-none d-md-block">

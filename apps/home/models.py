@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import Q
 from django.core.exceptions import ValidationError
-from .validators import validar_extension_imagen, validar_resolucion_banner
+from .validators import validar_extension_imagen, validar_resolucion_banner, validar_resolucion_banner_mobile
 
 
 
@@ -16,6 +16,15 @@ class Banner(models.Model):
         upload_to='banners/',
         validators=[validar_extension_imagen, validar_resolucion_banner],
         help_text='JPG, PNG o WEBP. Resolución recomendada: 1920×600px. Mínimo: 1200×375px.'
+    )
+
+    # 📱 Mobile (nuevo)
+    imagen_mobile = models.ImageField(
+        upload_to='banners/mobile/',
+        validators=[validar_extension_imagen, validar_resolucion_banner_mobile],
+        blank=True,
+        null=True,
+        help_text='Mobile: recomendado 720×960px.'
     )
     imagen_alt  = models.CharField(max_length=200, blank=True)  # accesibilidad
 

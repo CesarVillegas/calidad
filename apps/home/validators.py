@@ -1,6 +1,7 @@
 # home/validators.py
 import os
 from django.core.exceptions import ValidationError
+from PIL import Image
 
 
 def validar_extension_imagen(value):
@@ -13,7 +14,6 @@ def validar_extension_imagen(value):
 
 
 def validar_resolucion_banner(value):
-    from PIL import Image
     imagen = Image.open(value)
     ancho, alto = imagen.size
 
@@ -26,4 +26,14 @@ def validar_resolucion_banner(value):
         raise ValidationError(
             f'Resolución no permitida ({ancho}×{alto}px). '
             f'Use: 1920×600px o 1200×375px.'
+        )
+
+
+def validar_resolucion_banner_mobile(imagen):
+    img = Image.open(imagen)
+    width, height = img.size
+
+    if width != 720 or height != 960:
+        raise ValidationError(
+            'La imagen móvil debe tener exactamente 720x960 px.'
         )
