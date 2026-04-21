@@ -24,14 +24,16 @@
 .track {
   display: flex;
   gap: 10px;
+  transition: transform 0.3s ease;
 }
 
 .item {
-  min-width: 20%; /* 5 visibles */
+  flex: 0 0 calc(20% - 10px);
 }
 
 .item img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -54,7 +56,7 @@
 }
 
 .arrow.left {
-  left: 10px;
+  left: 0px;
 }
 
 .arrow.right {
@@ -68,4 +70,46 @@
   .item {
     min-width: 50%; /* 2 visibles */
   }
+}
+
+
+/* hover efecto para destacar la etapa en el carrusel, mostrando un texto descriptivo encima de la imagen. 
+Para esto, se puede usar una estructura HTML con una capa superpuesta y CSS para el efecto hover. */
+.card-overlay {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* opcional */
+}
+
+.card-overlay img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* capa encima */
+.overlay {
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* padding: 10px; */
+}
+
+/* hover */
+.card-overlay:hover .overlay {
+  opacity: 1;
+}
+
+.card-overlay:hover img {
+  transform: scale(1.05);
 }
