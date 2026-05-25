@@ -124,13 +124,13 @@
              
 
         </div>
-        <div class="row text-center justify-content-center">
+        <!-- <div class="row text-center justify-content-center">
           <div class="col-6 col-md-4 col-lg-4 mb-4">
-            <a href="{% url 'home:indicadores' %}" class="btn btn-outline-institucional btn-sm">
+            <a href="{. % url 'home:indicadores' %.  }" class="btn btn-outline-institucional btn-sm">
                 Ver más indicadores
             </a>
           </div>
-        </div>
+        </div> -->
     </div>
 </section>
 {% endif %}
@@ -138,7 +138,7 @@
 
 <section class="py-5" style="background-color: #fff;">
   <div class="container pb-5 carousel">
-    <h3 class="pb-5 text-center" style="color: var(--gris-link);">¿En Qué Etapa Estamos en el Proceso de Acreditación CNA?</h3>
+    <h3 class="pb-5 text-center" style="color: var(--gris-link);">¿En qué etapa estamos en el proceso de acreditación CNA?</h3>
     <button class="arrow left" id="prev">&#10094;</button>
     <button class="arrow right" id="next">&#10095;</button>
     <div class="track" id="track">
