@@ -1,0 +1,106 @@
+/* .funciones-section{
+    background:#f5f5f5;
+} */
+
+.titulo-principal{
+    color:var(--gris-link);
+    font-weight:700;
+    margin-bottom:2rem;
+}
+
+.subtitulo-seccion{
+    color:var(--gris-link);
+    margin-bottom:3rem;
+}
+
+.funcion-card{
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    transition:.3s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,.04);
+}
+
+.funcion-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+.contenido-card{
+    flex-grow:1;
+}
+
+.titulo-card{
+    color:var(--color-morado);
+    font-weight:700;
+    font-size:1.2rem;
+    line-height:1.4;
+    margin-bottom:1rem;
+}
+
+.descripcion-card{
+    color:#666;
+    font-size:.95rem;
+    line-height:1.8;
+}
+
+.btn-vermas{
+    margin-top:auto;
+    align-self:center;
+    background:transparent;
+    border:2px solid var(--color-morado);
+    color:var(--color-morado);
+    padding:10px 26px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.25s ease;
+    text-decoration:none;
+}
+
+.btn-vermas:hover{
+    background:var(--color-morado);
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+
+
+.organigrama-wrapper{
+    position:relative;
+    display:inline-block;
+    width:100%;
+}
+
+.organigrama-wrapper img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* Punto */
+.punto{
+    position:absolute;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:rgba(57,38,166,.92);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    transition:.25s ease;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+.punto:hover{
+    transform:scale(1.1);
+}
+
+.punto-oai{
+    top:22%;
+    left:60%;
+}

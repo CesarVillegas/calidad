@@ -50,3 +50,11 @@
 .maic-table tbody td.col-phase    { text-align: center; }
 
 .mark-x { color: #7F77DD; font-size: 0.95rem; font-weight: 500; }
+
+
+
+.icon-check{
+    color:var(--color-morado);
+    font-size:1.1rem;
+    margin-right:8px;
+}
